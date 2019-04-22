@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieLibraryComponent } from './movie-library.component';
+import { MockDataService } from '../../services/mock-data.service';
 
 describe('MovieLibraryComponent', () => {
   let component: MovieLibraryComponent;
@@ -10,6 +11,7 @@ describe('MovieLibraryComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ MovieLibraryComponent ]
     })
+    .overrideComponent(MovieLibraryComponent, { set: { providers: [ {provide: DataService, useClass: MockDataService}]}})
     .compileComponents();
   }));
 
@@ -23,7 +25,7 @@ describe('MovieLibraryComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should contain 4 products', () => {
+  it('should contain 4 movies', () => {
     expect(component.movies.length).toBe(4);
   });
 });

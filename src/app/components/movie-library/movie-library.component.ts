@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IMovie } from 'src/app/interfaces/IMovie';
+import { IMovie } from '../../interfaces/IMovie';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-movie-library',
@@ -8,9 +9,11 @@ import { IMovie } from 'src/app/interfaces/IMovie';
 })
 export class MovieLibraryComponent implements OnInit {
   movies: IMovie[];
-  constructor() { }
+
+  constructor(private service: DataService) { }
 
   ngOnInit() {
+    this.service.getData().subscribe((data) => { this.movies = data; });
   }
 
 }
