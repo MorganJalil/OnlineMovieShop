@@ -22,4 +22,8 @@ describe('MovieLibraryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contain 4 products', () => {
+    expect(component.movies.length).toBe(4);
+  });
 });
