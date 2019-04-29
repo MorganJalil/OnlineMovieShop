@@ -1,3 +1,9 @@
-<p *ngFor="let movie of movies">
-  {{movie.name}}: {{movie.description}}
-</p>
+<div *ngFor="let movie of movies">
+  <h2>{{movie.name}}</h2>
+  <h4>{{movie.description}}</h4> 
+  {{movie.price}}:-
+  <br>
+  <img width='250px'src={{movie.imageUrl}}>
+</div>
+
+

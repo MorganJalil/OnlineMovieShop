@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieLibraryComponent } from './movie-library.component';
 import { MockDataService } from '../../services/mock-data.service';
+import { DataService } from 'src/app/services/data.service';
 
 describe('MovieLibraryComponent', () => {
   let component: MovieLibraryComponent;

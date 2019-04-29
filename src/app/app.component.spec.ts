@@ -1,12 +1,16 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MovieLibraryComponent } from './components/movie-library/movie-library.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        MovieLibraryComponent
       ],
+      imports: [HttpClientModule]
     }).compileComponents();
   }));
 
