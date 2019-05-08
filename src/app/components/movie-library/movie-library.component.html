@@ -1,9 +1,10 @@
-<div *ngFor="let movie of movies">
-  <h2>{{movie.name}}</h2>
-  <h4>{{movie.description}}</h4> 
-  {{movie.price}}:-
-  <br>
-  <img width='250px'src={{movie.imageUrl}}>
+<div class="movie" *ngFor="let movie of movies">
+  <h3>{{movie.name}}</h3>
+    <div class="movieContent">
+    <p style="float: left;"><img width='150px'src={{movie.imageUrl}}></p>
+    {{movie.description}}
+    <br>{{movie.price}}:-
+  </div>
 </div>
 
 
