@@ -1,10 +1,10 @@
 :host {
   background-color: rgb(233, 233, 233);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
   }
 
 nav {
@@ -17,12 +17,18 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #7cdb00;
+    align-items: flex-start;
   }
 
   li {
       display: inline-block;
       zoom: 1;
   }
+
+  li:last-child {
+    margin-right: auto;
+  }
+  
   li a {
     display: inline-block;
     color: white;
