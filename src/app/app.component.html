@@ -2,8 +2,17 @@
 <base href="/">
 <nav>
     <ul>
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/movie-library">Library</a></li>
+        
+        <input type="text" formControlName="search" class="searchBar">
+       
+        <!--Status: {{ searchForm.status }} -->  
+      
+      <button type="submit" [disabled]="!searchForm.valid">Submit</button>
+      </form>
+      
     </ul>
   </nav>
 <!--<app-movie-library></app-movie-library>-->

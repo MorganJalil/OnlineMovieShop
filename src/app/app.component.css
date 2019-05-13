@@ -9,9 +9,11 @@
 
 nav {
     box-shadow: 0px 10px 10px #888888;
+    
   }
   
 ul {
+  display: flex;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -21,8 +23,9 @@ ul {
   }
 
   li {
-      display: inline-block;
+      display: inline;
       zoom: 1;
+      margin: auto;
   }
 
   li:last-child {
@@ -30,7 +33,7 @@ ul {
   }
   
   li a {
-    display: inline-block;
+    display: inline;
     color: white;
     text-align: center;
     padding: 16px;
@@ -40,3 +43,23 @@ ul {
   li a:hover {
     background-color: #111111;
   }
+
+  .searchBar {
+    
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px 0px 10px;
+    margin: 8px 0;
+    background-color: #7cdb00;
+    border: none;
+    border-bottom: 2px solid black;
+  }
+
+  form {
+  display: flex; /* 2. display flex to the rescue */
+  flex-direction: row;
+}
+
+label, input {
+  display: block; /* 1. oh noes, my inputs are styled as block... */
+}
