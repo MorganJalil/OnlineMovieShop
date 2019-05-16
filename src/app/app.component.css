@@ -21,18 +21,26 @@ ul {
     background-color: #7cdb00;
     align-items: flex-start;
   }
+h1 {
+margin: 0;
+padding: 0;
 
-  li {
+}
+
+li {
+  
       display: inline;
       zoom: 1;
       margin: auto;
+      flex: 1;
+      max-width: 200px;;
   }
 
-  li:last-child {
+li:last-child {
     margin-right: auto;
   }
   
-  li a {
+li a {
     display: inline;
     color: white;
     text-align: center;
@@ -40,11 +48,11 @@ ul {
     text-decoration: none;
   }
   
-  li a:hover {
+li a:hover {
     background-color: #111111;
   }
 
-  .searchBar {
+.searchBar {
     
     width: 100%;
     box-sizing: border-box;
@@ -55,7 +63,7 @@ ul {
     border-bottom: 2px solid black;
   }
 
-  form {
+form {
   display: flex; /* 2. display flex to the rescue */
   flex-direction: row;
 }

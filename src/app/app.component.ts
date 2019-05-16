@@ -7,7 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'onlineShop';
+  title = 'OnlineShop';
 
   searchForm = new FormGroup({
   search: new FormControl('', Validators.required),

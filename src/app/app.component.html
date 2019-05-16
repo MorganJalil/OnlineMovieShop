@@ -1,16 +1,15 @@
-<h1>Welcome to {{ title }}!</h1>
 <base href="/">
 <nav>
     <ul>
-        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <li><h1>{{ title }}</h1></li>
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/movie-library">Library</a></li>
-        
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
         <input type="text" formControlName="search" class="searchBar">
         <!--Status: {{ searchForm.status }} -->  
       <button type="submit" [disabled]="!searchForm.valid">Submit</button>
       </form>
-      
+      <li><a routerLink="/movie-library">Cart</a></li>
     </ul>
   </nav>
 <!--<app-movie-library></app-movie-library>-->

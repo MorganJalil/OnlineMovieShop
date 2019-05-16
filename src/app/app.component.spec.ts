@@ -2,6 +2,9 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieLibraryComponent } from './components/movie-library/movie-library.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -9,8 +12,9 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         MovieLibraryComponent
+        
       ],
-      imports: [HttpClientModule]
+      imports: [HttpClientModule, RouterTestingModule, ReactiveFormsModule]
     }).compileComponents();
   }));
 
@@ -20,16 +24,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'onlineShop'`, () => {
+  it(`should have as title 'OnlineShop'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('onlineShop');
+    expect(app.title).toEqual('OnlineShop');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to onlineShop!');
+    expect(compiled.querySelector('h1').textContent).toContain('OnlineShop');
   });
 });
