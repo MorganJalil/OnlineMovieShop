@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,20 +6,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'OnlineShop';
-
-  searchForm = new FormGroup({
-  search: new FormControl('', Validators.required),
-  });
-  
-
+  title = 'OnlineMovieShop';
 
 constructor() {
-  //console.log('kebab');
 };
 
-onSubmit() {
-  // TODO: Use EventEmitter with form value
-  console.log(this.searchForm.value);
-}
 }

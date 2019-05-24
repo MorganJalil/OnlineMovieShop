@@ -1,0 +1,48 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    background: rgb(34, 34, 34);
+    
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 1em .6em 0 .6em;
+}
+
+#toggleCartButton{
+    background-color: transparent;
+    color: orange;
+    border: none;
+    font-size: 1.4em;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#cart {
+    display: none;
+    background-color: white;
+    color: black;
+    position: fixed;
+    z-index: 2;
+    top: 11vh;
+    right: 10%;
+    padding: .2em 1em;
+    border: 1px solid black;
+    border-radius: 4px;
+    min-width: 200px;
+}
+
+.showCart  {
+    display: block !important;
+}
+
+header a{
+    color: white;
+    text-decoration: none;
+}
