@@ -8,6 +8,12 @@
   <nav>
     <ul>
       <li>
+          <input #movieSearch />
+  <button id="search" (click)="search(movieSearch.value)">
+      click
+  </button>
+      </li>
+      <li>
         <button id="toggleCartButton" (click)="toggleCart()"><i class="fas fa-shopping-cart"></i></button>
       </li>
     </ul>

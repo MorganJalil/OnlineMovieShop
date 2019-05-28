@@ -4,5 +4,6 @@ export interface IMovie {
     price: number;
     imageUrl: string;
     description: string;
+    year: number;
   }
   
