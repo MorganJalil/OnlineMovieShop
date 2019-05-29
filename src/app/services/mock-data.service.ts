@@ -15,8 +15,17 @@ export class MockDataService implements IDataService {
     { id: 3, name: 'Callaway Wedge', price: 3500, imageUrl: '', description: 'An awesome driver',year: 1990},
     { id: 4, name: 'Callaway Putter', price: 4500, imageUrl: '', description: 'An awesome driver',year: 1990}
   ];
+  movie: IMovie =
+  { name: 'Batman in ',
+    description: 'Drama',
+    year: 1993,
+    price: 10,
+    imageUrl: 'https://www.munchkin.com/media/catalog/product/3/1/31001_white_hot_safety_bath_ducky.jpg',
+    id: 1
+  }
+;
   
-  getData(): Observable<IMovie[]> {
+  getLibraryData(): Observable<IMovie[]> {
     return of(this.movies);
   }
   

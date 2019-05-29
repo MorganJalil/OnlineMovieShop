@@ -46,3 +46,34 @@ header a{
     color: white;
     text-decoration: none;
 }
+
+#searchResult {
+    z-index: 2;
+    text-align: center;
+    background: white;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 100px;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    color:  black;
+    background-color: bisque;
+    padding: 1em;
+    overflow-y: scroll;
+    max-height: 80%;
+    -webkit-box-shadow: 0px 0px 300px 500px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 300px 500px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 300px 500px rgba(0,0,0,0.75);
+}
+
+.showSearchResult {
+    display: block;
+}
+
+#closeSearch {
+    position: absolute;
+  left: 5%;
+}

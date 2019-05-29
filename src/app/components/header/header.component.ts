@@ -8,21 +8,31 @@ import { IMovie } from 'src/app/interfaces/IMovie';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  show: boolean = false;
   constructor(private service: DataService) { }
   movies: IMovie[];
 
   ngOnInit() {
   }
 
-  search(searchString: string) {
-    if (searchString) {
-      this.service.searchMovies(searchString)
+  search(searchMovie: string) {
+    if (searchMovie) {
+      
+     
+      this.service.getSearchMovie(searchMovie)
         .subscribe(movies => this.movies = movies);
-        console.log(searchString);
-        return searchString;
+        console.log(this.movies);
+        this.show = true;
+        return searchMovie;
         
     }
+    else {
+      document.getElementById("searchResult").style.display = "";
+    }
+  }
+
+  closeSearch() {
+    this.show = false;
   }
 
 }

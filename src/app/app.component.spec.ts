@@ -4,6 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieLibraryComponent } from './components/movie-library/movie-library.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent} from './components/home/home.component';
 
 
 describe('AppComponent', () => {
@@ -11,7 +14,10 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        MovieLibraryComponent
+        MovieLibraryComponent,
+        FooterComponent,
+        HeaderComponent,
+        HomeComponent
         
       ],
       imports: [HttpClientModule, RouterTestingModule, ReactiveFormsModule]
@@ -34,6 +40,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('OnlineMovieShop');
+    expect(compiled.querySelector('h1').textContent).toContain('Online Movie Shop');
   });
 });

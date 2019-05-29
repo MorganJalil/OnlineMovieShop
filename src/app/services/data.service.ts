@@ -10,23 +10,18 @@ import { IDataService } from '../interfaces/IDataService';
 export class DataService implements IDataService {
 
   constructor(private http: HttpClient) {}
+  
   libraryUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/products';
-  getData(): Observable<IMovie[]> {
+  getLibraryData(): Observable<IMovie[]> {
     return this.http.get<IMovie[]>(this.libraryUrl);
   }
 
 
+  
+  movieUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=';
 
-  movies: IMovie[];
-  movieUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/search';
-
-  searchMovies(search: string): Observable<IMovie[]> {
-    search = search.trim();
-
-    const options = search ?
-    {params: new HttpParams().set('searchText', search)}:{};
-
-    return this.http.get<IMovie[]>(this.movieUrl,options)
+  getSearchMovie(searchMovie: string): Observable<IMovie[]> {
+    return this.http.get<IMovie[]>(this.movieUrl+ searchMovie);
   }
 
 }

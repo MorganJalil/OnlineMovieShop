@@ -21,4 +21,19 @@
   <div id="cart">
    <!-- <app-show-cart></app-show-cart>-->
   </div>
+  
 </header>
+<div id="searchResult" *ngIf="show">
+  <button id="closeSearch" (click)="closeSearch()">X</button>
+  <br>
+  <div *ngFor="let item of movies" id="searchItem">
+    <p>{{ item.name }}</p>
+    <img src="{{ item.imageUrl }}" width="300px">
+    <p>{{ item.description }}</p>
+    <p>{{ item.price }} :-
+      <button (click)="addMovieToCart(item)">Add to cart</button>
+      
+    </p>
+    <hr>
+  </div>
+</div>
