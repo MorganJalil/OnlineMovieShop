@@ -1,4 +1,5 @@
 :host {
+    margin-top: 50 px;
     background-color: rgb(233, 233, 233);
     position: absolute;
     display: flex;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { IMovie } from 'src/app/interfaces/IMovie';
 
@@ -29,6 +29,17 @@ export class HeaderComponent implements OnInit {
     else {
       document.getElementById("searchResult").style.display = "";
     }
+  }
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+
+    if (window.pageYOffset>50) {
+      document.getElementById("kebab").style.opacity = '0.8';
+    } else {
+      document.getElementById("kebab").style.opacity = '1';
+    }
+/*     let number = window.pageYOffset || 0;
+    console.log(number); */
   }
 
   closeSearch() {

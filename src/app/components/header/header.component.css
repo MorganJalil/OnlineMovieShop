@@ -48,6 +48,7 @@ header a{
 }
 
 #searchResult {
+    border: 2px  double black;
     z-index: 2;
     text-align: center;
     background: white;
