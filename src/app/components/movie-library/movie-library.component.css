@@ -1,5 +1,5 @@
 :host {
-    margin-top: 50 px;
+    margin-top: 60px;
     background-color: rgb(233, 233, 233);
     position: absolute;
     display: flex;
@@ -10,7 +10,7 @@
     .movie {
       margin: 20px 20px 20px 20px;
       background-color: white;
-      max-width: 300px;
+      max-width: 400px;
       border-radius: 7px;
       box-shadow: 0px 10px 10px #888888;
     }
@@ -20,7 +20,8 @@
       
     }
     .movieContent img {
-      margin: 5px;
+      padding: 5px;
+      width: 400px;
     }
 
     p {

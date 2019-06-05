@@ -1,11 +1,13 @@
 <div class="movie" *ngFor="let movie of movies">
-  <h3>{{movie.name}}</h3>
     <div class="movieContent">
-    <p style="float: left;"><img width='150px' src={{movie.imageUrl}}></p>
-    {{movie.description}}
+    <p><img class= "movieImage" src={{movie.imageUrl}} (click)="redirectToDetails(movie.id)"></p>
+    
+    <!--{{movie.description}}-->
     
   </div>
+  <h3>{{movie.name}}</h3>
   {{movie.price}}:-
+  <button (click)="addMovieToCart(movie)" class="addToCartBtn">Add</button>
 </div>
 
 

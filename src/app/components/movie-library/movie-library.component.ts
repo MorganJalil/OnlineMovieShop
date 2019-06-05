@@ -16,4 +16,9 @@ export class MovieLibraryComponent implements OnInit {
     this.service.getLibraryData().subscribe((data) => { this.movies = data; 
     });
   }
+
+  redirectToDetails(id: number) {
+    location.href = "/movie-info/" + id;
+    console.log(id);
+  }
 }

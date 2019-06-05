@@ -5,5 +5,6 @@ export interface IMovie {
     imageUrl: string;
     description: string;
     year: number;
+    added: string;
   }
   

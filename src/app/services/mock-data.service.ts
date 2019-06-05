@@ -8,21 +8,50 @@ import { IDataService } from '../interfaces/IDataService';
 })
 export class MockDataService implements IDataService {
 
-  movies: IMovie[] = 
-  [
-    { id: 1, name: 'Callaway Driver', price: 2500, imageUrl: '' , description: 'An awesome driver', year: 1990},
-    { id: 2, name: 'Callaway Spoon', price: 1500, imageUrl: '', description: 'An awesome driver',year: 1990},
-    { id: 3, name: 'Callaway Wedge', price: 3500, imageUrl: '', description: 'An awesome driver',year: 1990},
-    { id: 4, name: 'Callaway Putter', price: 4500, imageUrl: '', description: 'An awesome driver',year: 1990}
-  ];
-  movie: IMovie =
-  { name: 'Batman in ',
-    description: 'Drama',
-    year: 1993,
-    price: 10,
-    imageUrl: 'https://www.munchkin.com/media/catalog/product/3/1/31001_white_hot_safety_bath_ducky.jpg',
-    id: 1
-  }
+ 
+  
+  movies: IMovie[] = [
+    {id: 76,
+    name: 'The Dark Knight',
+  // tslint:disable-next-line: max-line-length
+    description: 'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham, the Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice',
+    price: 199,
+  // tslint:disable-next-line: max-line-length
+    imageUrl: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg',
+    year: 2008,
+    added: '2016-01-05T00:00:00',
+    },
+
+    {id: 77,
+    name: 'Interstellar',
+    description: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanit"s survival.',
+    price: 129,
+  // tslint:disable-next-line: max-line-length
+    imageUrl: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SY1000_CR0,0,640,1000_AL_.jpg',
+    year: 2014,
+    added: '2017-07-16T00:00:00',
+    },
+
+    {id: 77,
+    name: 'Interstellar',
+    description: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanit"s survival.',
+    price: 129,
+  // tslint:disable-next-line: max-line-length
+    imageUrl: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SY1000_CR0,0,640,1000_AL_.jpg',
+    year: 2014,
+    added: '2017-07-16T00:00:00',
+    },
+
+    {id: 77,
+    name: 'Interstellar',
+    description: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanit"s survival.',
+    price: 129,
+  // tslint:disable-next-line: max-line-length
+    imageUrl: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SY1000_CR0,0,640,1000_AL_.jpg',
+    year: 2014,
+    added: '2017-07-16T00:00:00',
+    }
+    ];
 ;
   
   getLibraryData(): Observable<IMovie[]> {

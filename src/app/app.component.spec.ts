@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent} from './components/home/home.component';
+import { MovieInfoComponent} from './components/movie-info/movie-info.component';
 
 
 describe('AppComponent', () => {
@@ -17,7 +18,8 @@ describe('AppComponent', () => {
         MovieLibraryComponent,
         FooterComponent,
         HeaderComponent,
-        HomeComponent
+        HomeComponent,
+        MovieInfoComponent
         
       ],
       imports: [HttpClientModule, RouterTestingModule, ReactiveFormsModule]

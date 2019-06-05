@@ -18,16 +18,11 @@ export class HeaderComponent implements OnInit {
   search(searchMovie: string) {
     if (searchMovie) {
       
-     
       this.service.getSearchMovie(searchMovie)
         .subscribe(movies => this.movies = movies);
         console.log(this.movies);
         this.show = true;
         return searchMovie;
-        
-    }
-    else {
-      document.getElementById("searchResult").style.display = "";
     }
   }
   @HostListener("window:scroll", [])

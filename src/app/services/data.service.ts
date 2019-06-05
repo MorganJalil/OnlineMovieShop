@@ -16,12 +16,13 @@ export class DataService implements IDataService {
     return this.http.get<IMovie[]>(this.libraryUrl);
   }
 
-
-  
   movieUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=';
-
   getSearchMovie(searchMovie: string): Observable<IMovie[]> {
     return this.http.get<IMovie[]>(this.movieUrl+ searchMovie);
   }
 
+  redirectToDetails(id: number) {
+    location.href = '/details/' + id;
+    console.log(id);
+  }
 }
