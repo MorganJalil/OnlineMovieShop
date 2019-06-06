@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { MockDataService } from 'src/app/services/mock-data.service';
 
-describe('DetailsComponent', () => {
+describe('MovieInfoComponent', () => {
   let component: MovieInfoComponent;
   let fixture: ComponentFixture<MovieInfoComponent>;
 
@@ -21,9 +21,13 @@ describe('DetailsComponent', () => {
       providers: [ { provide: ActivatedRoute, useValue: activatedRoute },
         { provide: DataService, useClass: MockDataService } ]
     })
-   // Override component's own provider to test with MockData.service
- 
-
+    .overrideComponent(MovieInfoComponent, {
+      set: {
+        providers: [
+          { provide: DataService, useClass: MockDataService }
+        ]
+      }
+    })
   .compileComponents();
 }));
 
@@ -42,7 +46,5 @@ describe('DetailsComponent', () => {
     expect(component.movie).toBeDefined();
     expect(component.movie.name).toBe('The Dark Knight');
   });
-
-
 
 });

@@ -1,13 +1,10 @@
-<div class="movie" *ngFor="let movie of movies">
+<div class="movie" *ngFor="let movie of movies" (click)="redirectToDetails(movie.id)">
     <div class="movieContent">
-    <p><img class= "movieImage" src={{movie.imageUrl}} (click)="redirectToDetails(movie.id)"></p>
+    <p><img class= "movieImage" src={{movie.imageUrl}}></p>
     
     <!--{{movie.description}}-->
     
   </div>
   <h3>{{movie.name}}</h3>
-  {{movie.price}}:-
-  <button (click)="addMovieToCart(movie)" class="addToCartBtn">Add</button>
+  <p>{{movie.price}}:-</p>
 </div>
-
-

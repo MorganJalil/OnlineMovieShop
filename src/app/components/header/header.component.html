@@ -1,4 +1,4 @@
-<header id="kebab">
+<header id="mainHeader">
   <h1>
     <a routerLink="/">Online Movie Shop</a>
     <base>
@@ -8,7 +8,7 @@
   <nav>
     <ul>
       <li>
-          <input #movieSearch />
+          <input #movieSearch type="text" min="4" pattern=".{5,10}" required title="5 to 10 characters" />
   <button id="search" (click)="search(movieSearch.value)">
       click
   </button>
@@ -26,12 +26,12 @@
 <div id="searchResult" *ngIf="show">
   <button id="closeSearch" (click)="closeSearch()">X</button>
   <br>
-  <div *ngFor="let item of movies" id="searchItem">
-    <p>{{ item.name }}</p>
-    <img src="{{ item.imageUrl }}" width="300px">
-    <p>{{ item.description }}</p>
-    <p>{{ item.price }} :-
-      <button (click)="addMovieToCart(item)">Add to cart</button>
+  <div *ngFor="let movie of movies" id="searchItem">
+    <p>{{ movie.name }}</p>
+    <img src="{{ movie.imageUrl }}" width="300px">
+    <p>{{ movie.description }}</p>
+    <p>{{ movie.price }} :-
+      <button type="submit" (click)="addToShoppingCart(+movie.value)">Add to Cart</button>
       
     </p>
     <hr>
