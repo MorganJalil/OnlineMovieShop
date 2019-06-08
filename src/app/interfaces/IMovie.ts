@@ -6,5 +6,6 @@ export interface IMovie {
     description: string;
     year: number;
     added: string;
+    productCategory: any[];
   }
   

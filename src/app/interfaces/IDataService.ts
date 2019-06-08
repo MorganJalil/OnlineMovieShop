@@ -1,12 +1,10 @@
 import { Observable } from 'rxjs';
 import { IMovie } from './IMovie';
-import { IShoppingCart } from './IShoppingCart';
-import { IOrder } from './IOrder';
+import { IMovieCategory } from './IMovieCategory';
+
 
 export interface IDataService {
-    getLibraryData(): Observable<IMovie[]>;
-    getSessionCartItems();
-    emptyShoppingCart();
-    addToShoppingCart(items: IShoppingCart[]);
-    showOrder(): Observable<IOrder[]>;
+    getMoviesData(): Observable<IMovie[]>;
+    getMovieCategoryData(): Observable<IMovieCategory[]>;
+
 }

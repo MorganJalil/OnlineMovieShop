@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   
   show: boolean = false;
   movies: IMovie[];
-  movie: IMovie = { id: 0, name: '', price: 0, description: '', imageUrl: '', year: 0, added: ''};
+  movie: IMovie = { id: 0, name: '', price: 0, description: '', imageUrl: '', year: 0, added: '', productCategory:[]};
   items: IShoppingCart[] = [];
 
   ngOnInit() {
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   search(searchMovie: string) {
     if (searchMovie) {
       
-      this.service.getSearchMovie(searchMovie)
+      this.service.getSearchMovies(searchMovie)
         .subscribe(movies => this.movies = movies);
         console.log(this.movies);
         this.show = true;
@@ -40,27 +40,6 @@ export class HeaderComponent implements OnInit {
     }
 /*     let number = window.pageYOffset || 0;
     console.log(number); */
-  }
-  addToShoppingCart(quantity: number) {
-    const totalSum = 0;
-    const newMovie: IShoppingCart = {movie: this.movie, quantity, totalSum};
-    this.items = this.service.getSessionCartItems();
-    let addMovie = false;
-
-    for (let i = 0; i < this.items.length; i++) {
-      if (newMovie.movie.id === this.items[i].movie.id) {
-        this.items[i].quantity += newMovie.quantity;
-        this.items[i].totalSum = this.items[i].movie.price * this.items[i].quantity;
-        this.service.addToShoppingCart(this.items);
-        addMovie = true;
-      }
-    }
-
-    if (!addMovie) {
-      this.items.push({movie: newMovie.movie, quantity: newMovie.quantity,
-        totalSum: newMovie.movie.price * newMovie.quantity});
-      this.service.addToShoppingCart(this.items);
-    }
   }
 
   closeSearch() {

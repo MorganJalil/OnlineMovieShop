@@ -5,6 +5,7 @@ import { HttpClient} from '@angular/common/http';
 import { IDataService } from '../interfaces/IDataService';
 import { IShoppingCart } from '../interfaces/IShoppingCart';
 import { IOrder } from '../interfaces/IOrder';
+import { IMovieCategory } from '../interfaces/IMovieCategory';
 
 @Injectable({
   providedIn: 'root'
@@ -14,38 +15,32 @@ export class DataService implements IDataService {
   constructor(private http: HttpClient) {}
 
   shoppingCart: IShoppingCart[] = []
-  libraryUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/products';
-  movieUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=';
-  orderUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders';
-  companyOrderUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=27';
+  MoviesUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/products';
+  searchMovieUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=';
+  createOrderUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders';
+  showOrderUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=27';
+  movieCategoryUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/categories';
   
-  
-  getLibraryData(): Observable<IMovie[]> {
-    return this.http.get<IMovie[]>(this.libraryUrl);
+  getMoviesData(): Observable<IMovie[]> {
+    return this.http.get<IMovie[]>(this.MoviesUrl);
   }
 
-  getSearchMovie(searchMovie: string): Observable<IMovie[]> {
-    return this.http.get<IMovie[]>(this.movieUrl+ searchMovie);
+  getSearchMovies(searchMovie: string): Observable<IMovie[]> {
+    return this.http.get<IMovie[]>(this.searchMovieUrl+ searchMovie);
+  }
+  getSingleMovieData(id): Observable<IMovie> {
+    return this.http.get<IMovie>(this.MoviesUrl + id);
   }
 
-  addToShoppingCart (items: IShoppingCart[]) {
-    return sessionStorage.setItem('shoppingCart', JSON.stringify(this.shoppingCart));
-  }
-  getSessionCartItems() {
-    return this.shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart')) || [];
+  getMovieCategoryData(): Observable<IMovieCategory[]> {
+    return this.http.get<IMovieCategory[]>(this.movieCategoryUrl);
   }
 
   createOrder(order: IOrder): Observable<IOrder> {
-    return this.http.post<IOrder>(this.orderUrl, order);
+    return this.http.post<IOrder>(this.createOrderUrl, order);
   }
 
   showOrder(): Observable<IOrder[]> {
-    return this.http.get<IOrder[]>(this.companyOrderUrl);
+    return this.http.get<IOrder[]>(this.showOrderUrl);
   }
-
-  emptyShoppingCart(): void {
-    sessionStorage.removeItem('shoppingCart');
-    }
-
-
 }
