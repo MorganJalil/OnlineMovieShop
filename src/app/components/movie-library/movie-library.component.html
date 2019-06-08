@@ -1,10 +1,9 @@
-<div class="movie" *ngFor="let movie of movies" (click)="redirectToDetails(movie.id)">
-    <div class="movieContent">
-    <p><img class= "movieImage" src={{movie.imageUrl}}></p>
+<div class="movieContainer" *ngFor="let movie of movies" (click)="redirectToDetails(movie.id)">
+
+    <p><img class="img" src={{movie.imageUrl}}></p>
     
     <!--{{movie.description}}-->
     
-  </div>
-  <h3>{{movie.name}}</h3>
-  <p>{{movie.price}}:-</p>
+
+  <h5>{{movie.name}}</h5>
 </div>

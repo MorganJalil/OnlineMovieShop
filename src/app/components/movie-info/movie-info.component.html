@@ -1,23 +1,22 @@
-    
-<ul text-center>
-  <li>
+<body class="bod">
+<div class= "container">
+  <a [routerLink]="['']">back</a>
+  <h3>
     {{ movie.name }}
-  </li>
-  <li>
-    <img [src]="movie.imageUrl">
-  </li>
-  <li>
-    {{ movie.description }}
-  </li>
-  <li>
-    {{ movie.price }} kr
-  </li>
-</ul>
-<div class="text-center">
-  <label for="amount"></label>
-  <input type="number" id="amount" #amount/>
-  <button type="submit" (click)="addToShoppingCart(+amount.value)">Add to Cart</button>
+  </h3>
+
+  <div class="movieContainer">
+  <img [src]="movie.imageUrl">
+  </div>
+  <br>
+  <p>{{ movie.description }}</p>
+
+  <div class="text-center">
+    {{ movie.price }}:-
+    <label for="amount" class="item"></label>
+    <input type="number" id="amount" #amount class="item"/>
+    <button type="submit" (click)="addToShoppingCart(+amount.value)" class="item">Add to Cart</button>
+    <button (click)="goToCart()" class="item">Go to Cart!</button>
+  </div>
 </div>
-<div class="text-center">
-  <button (click)="goToCart()">Go to Cart!</button>
-</div>
+</body>

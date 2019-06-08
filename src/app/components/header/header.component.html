@@ -13,9 +13,9 @@
       click
   </button>
       </li>
-      <li>
-        <button id="toggleCartButton" (click)="toggleCart()"><i class="fas fa-shopping-cart"></i></button>
-      </li>
+      <li id="toggleCartButton">
+        <button (click)="toggleCart()">ShoppingCart</button>
+        
     </ul>
   </nav>
   <div id="cart">
@@ -24,16 +24,14 @@
   
 </header>
 <div id="searchResult" *ngIf="show">
-  <button id="closeSearch" (click)="closeSearch()">X</button>
+  <div class="sticky">
+    <button id="closeSearch" (click)="closeSearch()">X</button>
+  </div>
   <br>
-  <div *ngFor="let movie of movies" id="searchItem">
-    <p>{{ movie.name }}</p>
+  <div *ngFor="let movie of movies" id="searchItem" (click)="redirectToDetails(movie.id)">
     <img src="{{ movie.imageUrl }}" width="300px">
-    <p>{{ movie.description }}</p>
-    <p>{{ movie.price }} :-
-      <button type="submit" (click)="addToShoppingCart(+movie.value)">Add to Cart</button>
-      
-    </p>
+    <p>{{ movie.name }}</p>
+    <p>{{ movie.price }} :-</p>
     <hr>
   </div>
 </div>

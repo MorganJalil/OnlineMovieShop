@@ -11,13 +11,17 @@ import { IShoppingCart } from 'src/app/interfaces/IShoppingCart';
 export class HeaderComponent implements OnInit {
 
   constructor(private service: DataService) { }
-  
+  ngOnInit() {}
+
+
   show: boolean = false;
   movies: IMovie[];
-  movie: IMovie = { id: 0, name: '', price: 0, description: '', imageUrl: '', year: 0, added: '', productCategory:[]};
-  items: IShoppingCart[] = [];
-
-  ngOnInit() {
+  shoppingCart: boolean = false;
+ 
+  toggleCart() {
+    document.getElementById("cart").classList.add("showCart");
+    document.getElementById("cart").classList.add("hideCart"),1000;
+    this.shoppingCart = true;
   }
 
   search(searchMovie: string) {
@@ -34,7 +38,7 @@ export class HeaderComponent implements OnInit {
   onWindowScroll() {
 
     if (window.pageYOffset>50) {
-      document.getElementById("mainHeader").style.opacity = '0.8';
+      document.getElementById("mainHeader").style.opacity = '0.9';
     } else {
       document.getElementById("mainHeader").style.opacity = '1';
     }
@@ -42,8 +46,14 @@ export class HeaderComponent implements OnInit {
     console.log(number); */
   }
 
+  redirectToDetails(id: number) {
+    location.href = "/movie-info/" + id;
+    console.log(id);
+  }
+  addToShoppingCart(movie) {
+    document.getElementById("cart").classList.add("showCart"), 3000;
+  }
   closeSearch() {
     this.show = false;
   }
-
 }
