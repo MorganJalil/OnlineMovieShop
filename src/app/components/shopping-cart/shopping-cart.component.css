@@ -1,0 +1,24 @@
+body {
+margin-top: 100px;
+}
+
+.row {
+    border: 1px solid black;
+}
+
+tr, form{
+    font-family: Geo;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6em;
+    color: rgb(33, 228, 111);
+}
+th{
+    text-decoration-line: underline;
+}
+
+.row, form {
+    margin: 0 auto;
+    
+    max-width: 100%;
+}

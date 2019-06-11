@@ -1,3 +1,53 @@
-<p>
-  shopping-cart works!
-</p>
+<body>
+<div class="row">
+<table class="text-center">
+  <thead>
+    <tr>
+      <th>Movie</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th>Selection Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let detail of currentCart">
+      <td>
+        {{ detail.movie.name }}
+      </td>
+
+      <td>
+        {{ detail.quantity }}
+      </td>
+      <td>
+        {{ detail.movie.price }}
+      </td>
+      <td>
+        {{ detail.totalSum }}
+      </td>
+      <td><button (click)="deleteFromCart(detail.movie.id)">Remove</button></td>
+    </tr>
+    <tr>
+      Total Price:
+    </tr>
+    <tr>
+      {{ totalPrice }}
+    </tr>
+  </tbody>
+</table>
+</div>
+<form [formGroup]="userInfo" (ngSubmit)="createOrder()">
+  <label for="userName">Full Name</label>
+  <input type="text" id="userName" formControlName="userName"/>
+  <br>
+  <label for="userEmail">E-mail</label>
+  <input type="email" name="" id="userEmail" formControlName="userEmail">
+  <br>
+  <label for="paymentType">Payment Type</label>
+  <select name="paymentType" id="paymentType" formControlName="paymentType">
+    <option value="credit card">Credit Card</option>
+    <option value="payPal">PayPal</option>
+    <option value="invoice">Invoice</option>
+  </select>
+  <button type="submit">Place order</button>
+</form>
+</body>

@@ -68,7 +68,7 @@ export class MockDataService implements IDataService {
       }
     ];
 
-    ShoppingCart: IShoppingCart[] = [
+    shoppingCart: IShoppingCart[] = [
       {movie: {id: 76,
         name: 'The Dark Knight',
         description: 'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham, the Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice',
@@ -100,7 +100,7 @@ export class MockDataService implements IDataService {
   }
 
   addToShoppingCart(movie: IShoppingCart[]) {
-    return this.ShoppingCart;
+    return this.shoppingCart;
   }
   
   removeMovies() {

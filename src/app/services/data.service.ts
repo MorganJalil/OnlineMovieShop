@@ -11,7 +11,6 @@ import { IMovieCategory } from '../interfaces/IMovieCategory';
   providedIn: 'root'
 })
 export class DataService implements IDataService {
-  currentMovie: any;
 
   constructor(private http: HttpClient) {}
 

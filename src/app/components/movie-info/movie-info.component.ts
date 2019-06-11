@@ -93,4 +93,9 @@ export class MovieInfoComponent implements OnInit {
     removeMovies(): void {
     sessionStorage.removeItem('shoppingCart');
     }
+
+    goToShoppingCart() {
+      location.href = '/shoppingCart';
+      console.log('should go to cart');
+      }
 }
