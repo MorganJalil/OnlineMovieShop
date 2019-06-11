@@ -11,6 +11,7 @@ import { IMovieCategory } from '../interfaces/IMovieCategory';
   providedIn: 'root'
 })
 export class DataService implements IDataService {
+  currentMovie: any;
 
   constructor(private http: HttpClient) {}
 
@@ -43,4 +44,15 @@ export class DataService implements IDataService {
   showOrder(): Observable<IOrder[]> {
     return this.http.get<IOrder[]>(this.showOrderUrl);
   }
+
+  addToShoppingCart(movie: IShoppingCart[]) {
+    return sessionStorage.setItem('shoppingCart', JSON.stringify(this.shoppingCart));
+  }
+  getShoppingCartMovies() {
+    return this.shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart')) || [];
+  }
+
+  removeMovies(): void {
+    sessionStorage.removeItem('shoppingCart');
+    }
 }

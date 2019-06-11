@@ -12,4 +12,23 @@ describe('DataService', () => {
     const service: DataService = TestBed.get(DataService);
     expect(service).toBeTruthy();
   });
+  it('should get products', () => {
+    const service: DataService = TestBed.get(DataService);
+    expect(service.getMoviesData()).toBeTruthy();
+  });
+
+  it('should get categories', () => {
+    const service: DataService = TestBed.get(DataService);
+    service.getMovieCategoryData().subscribe(data => {
+      expect(data.length).toBeGreaterThan(0);
+    });
+  });
+  
+  it('should get orders', () => {
+    const service: DataService = TestBed.get(DataService);
+    service.showOrder().subscribe(data => {
+      expect(data.length).toBeGreaterThan(0);
+    });
+  });
+
 });
