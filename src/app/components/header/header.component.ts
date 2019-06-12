@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { IMovie } from 'src/app/interfaces/IMovie';
 import { IShoppingCart } from 'src/app/interfaces/IShoppingCart';
+import { InteractionService } from 'src/app/services/interaction.service';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +10,15 @@ import { IShoppingCart } from 'src/app/interfaces/IShoppingCart';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private service: DataService) { }
+  movies: IMovie[];
+  constructor(private service: DataService, private interactionService: InteractionService) { }
   ngOnInit() {}
 
 
   show: boolean = false;
-  movies: IMovie[];
+  
   shoppingCart: boolean = false;
+  numberOfSearchResults: number;
  
   toggleCart() {
     document.getElementById("cart").classList.add("showCart");
@@ -50,9 +52,11 @@ export class HeaderComponent implements OnInit {
     location.href = "/movie-info/" + id;
     console.log(id);
   }
-  addToShoppingCart(movie) {
-    document.getElementById("cart").classList.add("showCart"), 3000;
+
+  addMovieToCart(product){
+    this.interactionService.sendCart(product);
   }
+
   closeSearch() {
     this.show = false;
   }

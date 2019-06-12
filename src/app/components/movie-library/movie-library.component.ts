@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IMovie } from '../../interfaces/IMovie';
 import { DataService } from '../../services/data.service';
+import { InteractionService } from 'src/app/services/interaction.service';
 
 @Component({
   selector: 'app-movie-library',
@@ -9,12 +10,15 @@ import { DataService } from '../../services/data.service';
 })
 export class MovieLibraryComponent implements OnInit {
   movies: IMovie[];
-
-  constructor(private service: DataService) { }
+  @Input() product: IMovie;
+  constructor(private service: DataService, private interactionService: InteractionService) { }
 
   ngOnInit() {
     this.service.getMoviesData().subscribe((data) => { this.movies = data; 
     });
+  }
+  addMovieToCart(product){
+    this.interactionService.sendCart(product);
   }
 
   redirectToDetails(id: number) {

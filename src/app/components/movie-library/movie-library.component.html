@@ -1,6 +1,8 @@
-<div class="movieContainer" *ngFor="let movie of movies" (click)="redirectToDetails(movie.id)">
-    <p><img class="img" src={{movie.imageUrl}}></p>
+<div class="movieContainer" *ngFor="let movie of movies" >
+    <p><img class="img" src={{movie.imageUrl}} (click)="redirectToDetails(movie.id)"></p>
     <!--{{movie.description}}-->
     <h5>{{movie.name}}</h5>
+    <button (click)="addMovieToCart(movie)">Add to cart</button>
 </div>
+
 <div class='space'></div>

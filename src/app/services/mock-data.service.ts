@@ -95,7 +95,7 @@ export class MockDataService implements IDataService {
     return of(this.categories);
   }
 
-  showOrder(): Observable<IOrder[]> {
+  getOrder(): Observable<IOrder[]> {
     return of (this.order);
   }
 

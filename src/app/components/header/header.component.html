@@ -8,9 +8,9 @@
   <nav>
     <ul>
       <li>
-          <input #movieSearch type="text" min="4" pattern=".{5,10}" required title="5 to 10 characters" />
+          <input #movieSearch type="text" placeholder="Search movies"/>
   <button id="search" (click)="search(movieSearch.value)">
-      click
+      search
   </button>
       </li>
       <li id="toggleCartButton">
@@ -28,10 +28,11 @@
     <button id="closeSearch" (click)="closeSearch()">X</button>
   </div>
   <br>
-  <div *ngFor="let movie of movies" id="searchItem" (click)="redirectToDetails(movie.id)">
-    <img src="{{ movie.imageUrl }}" width="300px">
+  <div *ngFor="let movie of movies" id="searchItem">
+    <img src="{{ movie.imageUrl }}" width="300px" (click)="redirectToDetails(movie.id)">
     <p>{{ movie.name }}</p>
     <p>{{ movie.price }} :-</p>
-    <hr>
+    <button (click)="addMovieToCart(movie)">Add to cart</button>
+    <hr size="30">
   </div>
 </div>

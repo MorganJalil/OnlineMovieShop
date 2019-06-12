@@ -10,6 +10,6 @@ export interface IDataService {
     getMovieCategoryData(): Observable<IMovieCategory[]>;
     addToShoppingCart(movie: IShoppingCart[]);
     getShoppingCartMovies();
-    showOrder(): Observable<IOrder[]>;
+    getOrder(): Observable<IOrder[]>;
     removeMovies();
 }

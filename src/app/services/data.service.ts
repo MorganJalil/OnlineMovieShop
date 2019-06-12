@@ -17,8 +17,8 @@ export class DataService implements IDataService {
   shoppingCart: IShoppingCart[] = []
   MoviesUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/products';
   searchMovieUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=';
-  createOrderUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders';
-  showOrderUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=27';
+  postOrderUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders';
+  getOrderUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=27';
   movieCategoryUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/categories';
   
   getMoviesData(): Observable<IMovie[]> {
@@ -36,12 +36,12 @@ export class DataService implements IDataService {
     return this.http.get<IMovieCategory[]>(this.movieCategoryUrl);
   }
 
-  createOrder(order: IOrder): Observable<IOrder> {
-    return this.http.post<IOrder>(this.createOrderUrl, order);
+  postOrder(order: IOrder): Observable<IOrder> {
+    return this.http.post<IOrder>(this.postOrderUrl, order);
   }
 
-  showOrder(): Observable<IOrder[]> {
-    return this.http.get<IOrder[]>(this.showOrderUrl);
+  getOrder(): Observable<IOrder[]> {
+    return this.http.get<IOrder[]>(this.getOrderUrl);
   }
 
   addToShoppingCart(movie: IShoppingCart[]) {

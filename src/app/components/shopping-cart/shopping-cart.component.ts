@@ -53,13 +53,13 @@ export class ShoppingCartComponent implements OnInit {
     };
 
     console.log(orders);
-    this.service.createOrder(orders).subscribe(
+    this.service.postOrder(orders).subscribe(
       response => {console.log(response); },
       err => {console.log(err.message); },
       () => {console.log('completed'); }
     );
     sessionStorage.clear();
-    this.goToConfirmation();
+    //this.goToConfirmation();
   }
   goToConfirmation() {
   location.href = '/confirmation';

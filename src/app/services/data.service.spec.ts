@@ -26,7 +26,7 @@ describe('DataService', () => {
   
   it('should get orders', () => {
     const service: DataService = TestBed.get(DataService);
-    service.showOrder().subscribe(data => {
+    service.getOrder().subscribe(data => {
       expect(data.length).toBeGreaterThan(0);
     });
   });
