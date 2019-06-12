@@ -15,10 +15,10 @@ export class ShoppingCartComponent implements OnInit {
 
   orderRows: IOrderRow[] = [];
   currentCart: IShoppingCart[] = [];
-  totalPrice: 0;
+  totalPrice: number;
   userInfo = this.fb.group({
     userName: ['', Validators.required],
-    userEmail: ['', Validators.required],
+    userEmail: ['', [Validators.required, Validators.email]],
     paymentType: ['', Validators.required]
   });
 
@@ -72,8 +72,8 @@ export class ShoppingCartComponent implements OnInit {
         this.currentCart.splice(i, 1);
       }
       sessionStorage.setItem('shoppingCart', JSON.stringify(this.currentCart));
-      this.cartTotalSum;
-      location.href = '/shoppingCart';
+      this.cartTotalSum();
+      
     }
   }
 

@@ -30,14 +30,14 @@
       Total Price:
     </tr>
     <tr>
-      {{ totalPrice }}
+      <p>{{ totalPrice  }}</p>
     </tr>
   </tbody>
 </table>
 </div>
 <form [formGroup]="userInfo" (ngSubmit)="createOrder()">
   <label for="userName">Full Name</label>
-  <input type="text" id="userName" formControlName="userName"/>
+  <input type="text" id="userName" formControlName="userName" required minlength="4"/>
   <br>
   <label for="userEmail">E-mail</label>
   <input type="email" name="" id="userEmail" formControlName="userEmail">
@@ -46,8 +46,8 @@
   <select name="paymentType" id="paymentType" formControlName="paymentType">
     <option value="credit card">Credit Card</option>
     <option value="payPal">PayPal</option>
-    <option value="invoice">Invoice</option>
+    <option value="invoice">Klarna</option>
   </select>
-  <button type="submit">Place order</button>
+  <button type="submit" [disabled]="!userInfo.valid">Place order</button>
 </form>
 </body>
