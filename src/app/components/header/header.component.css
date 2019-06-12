@@ -1,29 +1,28 @@
-html {
-    overflow:   scroll;
-  }
-  ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 15px;
-  }
-  ::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-track {
     border-radius: 10px;
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(75,0,0,1) 100%);; 
-  }
-  ::-webkit-scrollbar-thumb {
+}
+
+::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: linear-gradient(0deg, rgba(15,17,99,1) 0%, rgba(7,119,203,1) 100%); 
-  }
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+::-webkit-scrollbar-thumb:hover {
     background: #555; 
-  }
+}
 
-  hr {
-      height: 1px;
-      background-color: black;
-  }
+hr {
+    height: 1px;
+    background-color: black;
+}
 
-header {
+#mainHeader {
     display: flex;
-    justify-content: space-around;
     color: white;
     position: fixed;
     width: 100%;
@@ -36,45 +35,28 @@ header {
     box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
 }
 
-nav ul li {
-    display: inline-block;
-    padding: 1em .6em 0 .6em;
+#mainHeader > nav{
+    margin: 0px 20px;
+    flex:1 1 auto;
+    text-align: center;
+}
+.group1 {
+    float: left;
+    margin: 0px 10px;
+}
+.group2 {
+    float: right;
+    margin: 0 auto;
+
 }
 
-#toggleCartButton{
-    background-color: transparent;
-    color: orange;
-    border: none;
-    font-size: 1.4em;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#cart {
-    display: none;
-    background-color: white;
-    color: black;
-    position: fixed;
-    z-index: 2;
-    top: 11vh;
-    right: 10%;
-    padding: .2em 1em;
-    border: 1px solid black;
-    border-radius: 4px;
-    min-width: 200px;
-}
-
-.showCart  {
-    display: block !important;
-}
-
-header a{
+#mainHeader a{
     color: white;
     text-decoration: none;
 }
-
-.showSearchResult {
-    display: block !important;
+#mainHeader a:hover{
+    color: yellow;
+    text-decoration: none;
 }
 
 #searchResult {
@@ -93,7 +75,7 @@ header a{
     border-radius: 7px;
     transform: translate(-50%, -50%);
     color:  white;
-    background: rgb(15,17,99);
+    
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(75,0,0,1) 100%);
     overflow-y:scroll;
     -webkit-box-shadow: 0px 0px 300px 500px rgba(0,0,0,0.75);
@@ -118,47 +100,15 @@ header a{
     border-radius: 7px;
 }
 
-#toggleCartButton > button{
-    background-color: transparent;
-    font-size: 1.4em;
-    border-radius: 4px;
-    cursor: pointer;
+.dropDownCart{
+    position: absolute;
+    right: 20px;
+    background: rgba(0, 0, 0, 1);
+    opacity: 100%;
+    padding: 10px;
 }
-
-#toggleCartButton:hover #cart{
-    /* display: block; */
-    visibility: visible;
-}
-
-#cart {
-    /* display: none; */
-    visibility: hidden;
-    background-color: white;
-    color: black;
-    position: fixed;
-    z-index: 2;
-    top: 8vh;
-    right: 10%;
-    padding: .2em 1em;
-    border: 1px solid rgb(206, 206, 206);
-    border-radius: 4px;
-    min-width: 200px;
-}
-#cart.showCart{
-    visibility: visible;
-}
-
-#cart .hideCart {
-    visibility: hidden !important;
-}
-
 
 #closeSearch {
     position: absolute;
     left: 5px;
-}
-.sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 5px;
 }

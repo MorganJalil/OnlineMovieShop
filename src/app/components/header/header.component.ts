@@ -11,19 +11,31 @@ import { InteractionService } from 'src/app/services/interaction.service';
 })
 export class HeaderComponent implements OnInit {
   movies: IMovie[];
-  constructor(private service: DataService, private interactionService: InteractionService) { }
-  ngOnInit() {}
-
-
+  totalSum: number;
+  showShoppingCart = false;
+  totalAmount: number;
+  currentCart: IShoppingCart[] = [];
   show: boolean = false;
-  
   shoppingCart: boolean = false;
   numberOfSearchResults: number;
+
+  constructor(private service: DataService, private interaction: InteractionService) { }
+  ngOnInit() {
+    this.interaction.getCartFromSessionStorage();
+    this.currentCart = this.interaction.getCart();
+    this.countTotalPrice();
+    this.countTotalAmount();
+
+    this.interaction.movieSource$.subscribe(
+      cartInfo => {
+        this.print(cartInfo);
+      }
+    )
+  }
  
-  toggleCart() {
-    document.getElementById("cart").classList.add("showCart");
-    document.getElementById("cart").classList.add("hideCart"),1000;
-    this.shoppingCart = true;
+  cartDropDown(){
+    this.showShoppingCart = !this.showShoppingCart;
+  
   }
 
   search(searchMovie: string) {
@@ -48,16 +60,56 @@ export class HeaderComponent implements OnInit {
     console.log(number); */
   }
 
+  
+
   redirectToDetails(id: number) {
     location.href = "/movie-info/" + id;
     console.log(id);
   }
 
-  addMovieToCart(product){
-    this.interactionService.sendCart(product);
+  addMovieToCart(product: IMovie){
+    this.interaction.sendCart(product);
+    this.currentCart = this.interaction.cart;
+    this.countTotalAmount();
+    this.countTotalPrice();
+  }
+
+  subtractMovieFromCart(id) {
+    this.interaction.delete(id);
+    this.countTotalAmount();
+    this.countTotalPrice();
+  }
+
+  print(cart) {
+    this.currentCart = cart;
+    this.countTotalAmount();
+    this.countTotalPrice();
+  }
+
+  countTotalPrice(){
+    this.totalSum = 0;
+    console.log('Count total: ', this.currentCart);
+    for(let i = 0; i < this.currentCart.length; i++){
+      console.log('In loop: ', this.currentCart[i]);
+      this.totalSum += this.currentCart[i].movie.price * this.currentCart[i].quantity;
+    }
+  }
+
+  countTotalAmount(){
+    this.totalAmount = 0;
+    for(let i = 0; i < this.currentCart.length; i++){
+      this.totalAmount += this.currentCart[i].quantity;
+      console.log("total amount is: " + this.totalAmount);
+ 
+    }
   }
 
   closeSearch() {
     this.show = false;
   }
+
+  goToShoppingCart() {
+    location.href = '/shoppingCart';
+    console.log('should go to cart');
+    }
 }

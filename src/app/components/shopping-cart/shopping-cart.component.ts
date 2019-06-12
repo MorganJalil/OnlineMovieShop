@@ -5,6 +5,8 @@ import { Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { InteractionService } from 'src/app/services/interaction.service';
+import { IMovie } from 'src/app/interfaces/IMovie';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -16,18 +18,35 @@ export class ShoppingCartComponent implements OnInit {
   orderRows: IOrderRow[] = [];
   currentCart: IShoppingCart[] = [];
   totalPrice: number;
+  showShoppingCart = false;
+  totalAmount: number;
+  
   userInfo = this.fb.group({
     userName: ['', Validators.required],
     userEmail: ['', [Validators.required, Validators.email]],
     paymentType: ['', Validators.required]
   });
 
-  constructor(private route: ActivatedRoute, private service: DataService,
+  constructor(private interaction: InteractionService,private route: ActivatedRoute, private service: DataService,
     private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.currentCart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+
+
+    this.interaction.getCartFromSessionStorage();
+    this.currentCart = this.interaction.getCart();
     this.cartTotalSum();
+
+    this.interaction.movieSource$.subscribe(
+      cartInfo => {
+        this.print(cartInfo);
+      }
+    )
+  }
+ 
+  print(currentCart) {
+    this.currentCart = this.currentCart;
+    this.cartTotalSum()
   }
 
   cartTotalSum() {
@@ -37,6 +56,23 @@ export class ShoppingCartComponent implements OnInit {
     }
     return this.totalPrice;
   }
+
+  addSingleMovieToCart(singleMovie: IMovie) {
+
+    this.interaction.sendCart(singleMovie);
+    this.currentCart = this.interaction.cart;
+    this.cartTotalSum();
+  }
+
+  cartDropDown() {
+    this.showShoppingCart = !this.showShoppingCart;
+  }
+
+  subtractMovie(id) {
+    this.interaction.delete(id);
+    this.cartTotalSum();
+  }
+
 
   createOrder() {
     this.createOrderRow;

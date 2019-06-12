@@ -10,6 +10,7 @@
   }
 
     .movieContainer {
+      position: relative;
       overflow: hidden;
       text-align: center;
       margin: 20px 20px 20px 20px;
@@ -22,17 +23,29 @@
       background: rgb(204,2,2);
       background: linear-gradient(0deg, rgba(204,2,2,1) 0%, rgba(0,0,0,1) 9%);
       color: white;
+      transition: transform .2s ease-out;
     }
 
+    .dropDownCart{
+      position: absolute;
+      background: rgba(0, 0, 0, 0.6);
+      /* background-color: black; */
+      padding: 10px;
+  }
+
+    .addButton {
+      border: 1px solid green;
+      margin-left: 0 auto;
+      position: absolute;
+      right: 1px;
+      bottom: 1px;
+      border-radius: 7px;
+    }
     .img {
       object-fit: cover;
       width: auto;
       height: 600px;
       vertical-align: middle;
-    }
-
-    .movieContainer  {
-      transition: transform .2s ease-out;
     }
 
     .movieContainer:hover  {

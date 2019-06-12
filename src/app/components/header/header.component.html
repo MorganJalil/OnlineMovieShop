@@ -1,26 +1,24 @@
 <header id="mainHeader">
-  <h1>
-    <a routerLink="/">Online Movie Shop</a>
-    <base>
-  </h1>
-  <a routerLink="/admin">Admin</a>
-  <!--<app-search></app-search>-->
   <nav>
-    <ul>
-      <li>
-          <input #movieSearch type="text" placeholder="Search movies"/>
-  <button id="search" (click)="search(movieSearch.value)">
-      search
-  </button>
-      </li>
-      <li id="toggleCartButton">
-        <button  routerLink="/shoppingCart">ShoppingCart</button>
-        
-    </ul>
+    <h1>Online Movie Shop</h1>
+    <a class="group1" routerLink="/">Hem </a>
+    <a class="group1" routerLink="/admin">Admin </a>
+    <input #movieSearch type="text" placeholder="Search movies"/>
+    <button id="search" (click)="search(movieSearch.value)">sök</button>
+    <button class="group2" (click)="cartDropDown()">Kundkorg</button>
+    <div *ngIf="showShoppingCart" class="dropDownCart">
+        <button (click)="goToShoppingCart()" class="item">gå till checkout</button>
+        <div *ngFor="let singleMovie of currentCart">
+          <p>Name: {{singleMovie.movie.name}}</p>
+          <p><strong>Amount: {{singleMovie.quantity}}</strong>, {{singleMovie.movie.price}}:-/each
+            <i class="add fas fa-plus" (click)="addSingleMovieToCart(singleMovie.movie)"></i>
+            <i class="subtract fas fa-minus" (click)="subtractMovie(singleMovie.movie.id)"></i></p>
+          <p> <strong>Total: {{singleMovie.totalSum}}:-</strong></p>
+        </div>
+      </div>
   </nav>
-  <div id="cart">
-   <!-- <app-show-cart></app-show-cart>-->
-  </div>
+  
+
   
 </header>
 <div id="searchResult" *ngIf="show">
@@ -32,7 +30,7 @@
     <img src="{{ movie.imageUrl }}" width="300px" (click)="redirectToDetails(movie.id)">
     <p>{{ movie.name }}</p>
     <p>{{ movie.price }} :-</p>
-    <button (click)="addMovieToCart(movie)">Add to cart</button>
+    <button (click)="addMovieToCart(movie)">Lägg till</button>
     <hr size="30">
   </div>
 </div>

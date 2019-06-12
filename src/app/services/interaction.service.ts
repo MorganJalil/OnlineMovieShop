@@ -30,7 +30,7 @@ export class InteractionService {
       this.cart.push({ movie: product, quantity: 1, totalSum: product.price});
     }
     this.movieSource.next(this.cart);
-    this.saveCartToLocalStorage();
+    this.saveCartToSessionStorage();
   }
   
   delete(id: number){
@@ -47,14 +47,14 @@ export class InteractionService {
       }
     }
     this.movieSource.next(this.cart);
-    this.saveCartToLocalStorage();
+    this.saveCartToSessionStorage();
   }
 
-  saveCartToLocalStorage(){
+  saveCartToSessionStorage(){
     sessionStorage.setItem('shoppingCart', JSON.stringify(this.cart));
   }
 
-  getCartFromLocalStorage(){
+  getCartFromSessionStorage(){
     let fetchLocalStorageCart = sessionStorage.getItem('shoppingCart');
     if(fetchLocalStorageCart === null){
       this.cart = [];
@@ -71,7 +71,7 @@ export class InteractionService {
  
     this.movieSource.next(this.cart);
  
-    this.saveCartToLocalStorage();
+    this.saveCartToSessionStorage();
  
   }
 }

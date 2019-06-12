@@ -1,53 +1,40 @@
 <body>
 <div class="row">
-<table class="text-center">
-  <thead>
-    <tr>
-      <th>Movie</th>
-      <th>Amount</th>
-      <th>Price</th>
-      <th>Selection Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let detail of currentCart">
-      <td>
-        {{ detail.movie.name }}
-      </td>
 
-      <td>
-        {{ detail.quantity }}
-      </td>
-      <td>
-        {{ detail.movie.price }}
-      </td>
-      <td>
-        {{ detail.totalSum }}
-      </td>
-      <td><button (click)="deleteFromCart(detail.movie.id)">Remove</button></td>
-    </tr>
-    <tr>
-      Total Price:
-    </tr>
-    <tr>
-      <p>{{ totalPrice  }}</p>
-    </tr>
+  <tbody>
+    <div *ngFor="let items of currentCart">
+        <p><strong>
+        {{ items.movie.name }}
+      </strong></p>
+
+      <p>antal <button (click)="addSingleMovieToCart(items.movie)">+</button>
+        <button (click)="subtractMovie(items.movie.id)">-</button> {{ items.quantity }} st à {{ items.movie.price }} kr
+      </p>
+      <p> total <strong>{{ items.totalSum }}</strong> kr
+      </p>
+      <button (click)="deleteFromCart(items.movie.id)">ta bort</button>
+      <hr>
+    </div>
+    <p>
+      Total <strong>{{ totalPrice  }} </strong> kr
+    </p>
   </tbody>
-</table>
 </div>
-<form [formGroup]="userInfo" (ngSubmit)="createOrder()">
-  <label for="userName">Full Name</label>
+
+<form class="form" [formGroup]="userInfo" (ngSubmit)="createOrder()">
+  <label for="userName">Namn</label>
   <input type="text" id="userName" formControlName="userName" required minlength="4"/>
   <br>
   <label for="userEmail">E-mail</label>
   <input type="email" name="" id="userEmail" formControlName="userEmail">
   <br>
-  <label for="paymentType">Payment Type</label>
+  <label for="paymentType">Betalning</label>
   <select name="paymentType" id="paymentType" formControlName="paymentType">
     <option value="credit card">Credit Card</option>
     <option value="payPal">PayPal</option>
     <option value="klarna">Klarna</option>
   </select>
-  <button type="submit" [disabled]="!userInfo.valid">Place order</button>
+  <br>
+  <button type="submit" [disabled]="!userInfo.valid">Skicka order</button>
 </form>
 </body>
