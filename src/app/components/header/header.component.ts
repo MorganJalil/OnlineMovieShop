@@ -88,9 +88,7 @@ export class HeaderComponent implements OnInit {
 
   countTotalPrice(){
     this.totalSum = 0;
-    console.log('Count total: ', this.currentCart);
     for(let i = 0; i < this.currentCart.length; i++){
-      console.log('In loop: ', this.currentCart[i]);
       this.totalSum += this.currentCart[i].movie.price * this.currentCart[i].quantity;
     }
   }
@@ -99,8 +97,6 @@ export class HeaderComponent implements OnInit {
     this.totalAmount = 0;
     for(let i = 0; i < this.currentCart.length; i++){
       this.totalAmount += this.currentCart[i].quantity;
-      console.log("total amount is: " + this.totalAmount);
- 
     }
   }
 

@@ -6,14 +6,16 @@
     <input #movieSearch type="text" placeholder="Search movies"/>
     <button id="search" (click)="search(movieSearch.value)">sök</button>
     <button class="group2" (click)="cartDropDown()">Kundkorg</button>
+
     <div *ngIf="showShoppingCart" class="dropDownCart">
         <button (click)="goToShoppingCart()" class="item">gå till checkout</button>
         <div *ngFor="let singleMovie of currentCart">
-          <p>Name: {{singleMovie.movie.name}}</p>
-          <p><strong>Amount: {{singleMovie.quantity}}</strong>, {{singleMovie.movie.price}}:-/each
+          <p> {{singleMovie.movie.name}}</p>
+          <p><strong>antal {{singleMovie.quantity}}</strong>, {{singleMovie.movie.price}}:- st.
             <i class="add fas fa-plus" (click)="addSingleMovieToCart(singleMovie.movie)"></i>
             <i class="subtract fas fa-minus" (click)="subtractMovie(singleMovie.movie.id)"></i></p>
-          <p> <strong>Total: {{singleMovie.totalSum}}:-</strong></p>
+          <p> <strong>Total {{singleMovie.totalSum}}:-</strong></p>
+          <hr>
         </div>
       </div>
   </nav>
