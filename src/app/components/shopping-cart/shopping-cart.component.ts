@@ -96,9 +96,6 @@ export class ShoppingCartComponent implements OnInit {
     );
     sessionStorage.clear();
     //this.goToConfirmation();
-    snackbar.open('Message archived', 'Undo', {
-      duration: 3000
-    });
   }
   
   goToConfirmation() {

@@ -6,6 +6,7 @@ body {
 }
 
 p {
+    padding: 50px;
     color:white;
-    margin-top: 400px;
+    margin-top: 80px;
 }
