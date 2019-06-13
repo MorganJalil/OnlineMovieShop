@@ -8,15 +8,15 @@
     <button class="group2" (click)="cartDropDown()">Kundkorg</button>
 
     <div *ngIf="showShoppingCart" class="dropDownCart">
-        <button (click)="goToShoppingCart()" class="item">gå till checkout</button>
-        <div>Totalt <strong>{{totalSum}}</strong> kr</div>
+        <button (click)="goToShoppingCart()" class="item">Checkout</button>
+        <div>Summa: <strong class="orangeText">{{totalSum}}:-</strong><br>'a <strong class="orangeText">{{totalAmount}}</strong> filmer</div>
         <hr>
         <div *ngFor="let singleMovie of currentCart">
-          <p> {{singleMovie.movie.name}}</p>
-          <p><strong>antal {{singleMovie.quantity}}</strong>, {{singleMovie.movie.price}}:- st.
-            <i class="add fas fa-plus" (click)="addSingleMovieToCart(singleMovie.movie)"></i>
-            <i class="subtract fas fa-minus" (click)="subtractMovie(singleMovie.movie.id)"></i></p>
-          <p> <strong>Total {{singleMovie.totalSum}}:-</strong></p>
+          <p class="movieTitle"> {{singleMovie.movie.name}}</p>
+          <p>antal a' <strong class="orangeText">{{singleMovie.movie.price}}:-<br />
+            <button class="plusMinus" (click)="addMovieToCart(singleMovie.movie)"> + </button> {{singleMovie.quantity}} </strong>  <button class="plusMinus" (click)="subtractMovieFromCart(singleMovie.movie.id)">-
+          </button> </p>
+          <p>Totalt <strong class="orangeText">{{singleMovie.totalSum}}:-</strong></p>
           <hr>
 
         </div>

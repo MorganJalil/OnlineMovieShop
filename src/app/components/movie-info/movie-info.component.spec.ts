@@ -46,5 +46,4 @@ describe('MovieInfoComponent', () => {
     expect(component.movie).toBeDefined();
     expect(component.movie.name).toBe('The Dark Knight');
   });
-
 });

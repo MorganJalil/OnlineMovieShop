@@ -1,0 +1,29 @@
+body {
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(0deg, rgba(15,17,99,1) 0%, rgba(7,119,203,1) 100%);
+}
+.goBack {
+    text-decoration: none;
+    border: 1px solid white;
+    color:  white;  
+    margin-top: 80px;
+    padding: 10px 20px;
+    background-color:green;
+    -webkit-box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 195px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.75);
+}
+
+.goBack:hover {
+    border: 1px solid white;
+    color:  white;  
+    background-color:black;
+}
+
+body {
+    padding: 50px;
+    color:white;
+    margin-top: 80px;
+}

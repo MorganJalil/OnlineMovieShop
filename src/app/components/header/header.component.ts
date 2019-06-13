@@ -22,8 +22,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.interaction.getCartFromSessionStorage();
     this.currentCart = this.interaction.getCart();
-    this.countTotalPrice();
-    this.countTotalAmount();
+    this.cartTotalSum();
+    this.cartTotalAmount();
 
     this.interaction.movieSource$.subscribe(
       cartInfo => {
@@ -64,30 +64,30 @@ export class HeaderComponent implements OnInit {
   addMovieToCart(product: IMovie){
     this.interaction.sendCart(product);
     this.currentCart = this.interaction.cart;
-    this.countTotalAmount();
-    this.countTotalPrice();
+    this.cartTotalAmount();
+    this.cartTotalSum();
   }
 
   subtractMovieFromCart(id) {
     this.interaction.delete(id);
-    this.countTotalAmount();
-    this.countTotalPrice();
+    this.cartTotalAmount();
+    this.cartTotalSum();
   }
 
   print(cart) {
     this.currentCart = cart;
-    this.countTotalAmount();
-    this.countTotalPrice();
+    this.cartTotalAmount();
+    this.cartTotalSum();
   }
 
-  countTotalPrice(){
+  cartTotalSum(){
     this.totalSum = 0;
     for(let i = 0; i < this.currentCart.length; i++){
       this.totalSum += this.currentCart[i].movie.price * this.currentCart[i].quantity;
     }
   }
 
-  countTotalAmount(){
+  cartTotalAmount(){
     this.totalAmount = 0;
     for(let i = 0; i < this.currentCart.length; i++){
       this.totalAmount += this.currentCart[i].quantity;
@@ -96,6 +96,10 @@ export class HeaderComponent implements OnInit {
 
   closeSearch() {
     this.show = false;
+  }
+
+  emptyCart() {
+    this.interaction.clearCartLocalstorage();
   }
 
   goToShoppingCart() {

@@ -18,8 +18,8 @@ export class ShoppingCartComponent implements OnInit {
   orderRows: IOrderRow[] = [];
   currentCart: IShoppingCart[] = [];
   totalPrice: number;
-  showShoppingCart = false;
   totalAmount: number;
+  showShoppingCart = false;
   
   userInfo = this.fb.group({
     userName: ['', Validators.required],
@@ -31,7 +31,6 @@ export class ShoppingCartComponent implements OnInit {
     private fb: FormBuilder) { }
 
   ngOnInit() {
-
 
     this.interaction.getCartFromSessionStorage();
     this.currentCart = this.interaction.getCart();
@@ -57,7 +56,14 @@ export class ShoppingCartComponent implements OnInit {
     return this.totalPrice;
   }
 
-  addSingleMovieToCart(singleMovie: IMovie) {
+  cartTotalAmount(){
+    this.totalAmount = 0;
+    for(let i = 0; i < this.currentCart.length; i++){
+      this.totalAmount += this.currentCart[i].quantity;
+    }
+  }
+
+  addMovieToCart(singleMovie: IMovie) {
 
     this.interaction.sendCart(singleMovie);
     this.currentCart = this.interaction.cart;
@@ -68,7 +74,7 @@ export class ShoppingCartComponent implements OnInit {
     this.showShoppingCart = !this.showShoppingCart;
   }
 
-  subtractMovie(id) {
+  subtractMovieFromCart(id) {
     this.interaction.delete(id);
     this.cartTotalSum();
   }
@@ -76,7 +82,7 @@ export class ShoppingCartComponent implements OnInit {
 
   createOrder() {
     this.createOrderRow;
-    console.log(this.userInfo.value);
+    //console.log(this.userInfo.value);
     const orders = {
       id: 0,
       companyId: 27,
@@ -88,18 +94,18 @@ export class ShoppingCartComponent implements OnInit {
       orderRows: this.orderRows
     };
 
-    console.log(orders);
+    //console.log(orders);
     this.service.postOrder(orders).subscribe(
       response => {console.log(response); },
       err => {console.log(err.message); },
       () => {console.log('completed'); }
     );
     sessionStorage.clear();
-    //this.goToConfirmation();
+    this.goToConfirmation();
   }
   
   goToConfirmation() {
-  location.href = '/confirmation';
+  location.href = '/confirmed';
   }
   
 
@@ -110,8 +116,11 @@ export class ShoppingCartComponent implements OnInit {
       }
       sessionStorage.setItem('shoppingCart', JSON.stringify(this.currentCart));
       this.cartTotalSum();
-      
     }
+  }
+
+  emptyCart() {
+    this.interaction.clearCartLocalstorage();
   }
 
   createOrderRow() { 

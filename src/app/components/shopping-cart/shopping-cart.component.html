@@ -2,20 +2,20 @@
 <div class="row">
 
     <div class="items" *ngFor="let items of currentCart">
-        <h4><strong>
+        <div class="movieTitle"><strong>
         {{ items.movie.name }}
-      </strong></h4>
-      <p>antal  {{ items.quantity }} st à {{ items.movie.price }} kr
+      </strong></div>
+      <p><strong class="orangeText">{{ items.quantity }}</strong> à <strong class="orangeText">{{ items.movie.price }}</strong> kr
         <button (click)="addSingleMovieToCart(items.movie)">+</button>
         <button (click)="subtractMovie(items.movie.id)">-</button></p>
-      <p> totalt <strong>{{ items.totalSum }}</strong> kr
+      <p> totalt <strong class="orangeText">{{ items.totalSum }}</strong> kr
       </p>
       <button class="delete" (click)="deleteFromCart(items.movie.id)">ta bort</button>
       <hr>
     </div>
 </div>
 <br>
-<h2>Totalt <strong>{{ totalPrice }} </strong> kr</h2>
+<h2 class="sum">Summa <strong>{{ totalPrice }} </strong> kr</h2>
 <br>
 
 <form class="form" [formGroup]="userInfo" (ngSubmit)="createOrder()">

@@ -11,10 +11,11 @@ body {
     display: flex;
     flex-flow: wrap row;
     margin: 0 auto;
+    
 }
 .items {
-    
-    background-color: white;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(75,0,0,1) 40%);
+    color: white;
     width: 300px;
     border: 1px solid black;
     text-align: center;
@@ -32,9 +33,26 @@ body {
     margin: 0 auto;
 }
 
-h2 {
+.sum {
     text-align: center;
-    color: white;
+    font-size: 42px;
+    color: orange;
+}
+
+.orangeText {
+    color: orange;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.movieTitle {
+    font-size: 34px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: underline;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .form {
