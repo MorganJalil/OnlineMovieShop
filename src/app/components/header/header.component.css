@@ -3,7 +3,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    border-radius: 10px;
+    border-radius: 9px;
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(75,0,0,1) 100%);; 
 }
 
@@ -114,4 +114,5 @@ hr {
 #closeSearch {
     position: absolute;
     left: 5px;
+    top:5px
 }
