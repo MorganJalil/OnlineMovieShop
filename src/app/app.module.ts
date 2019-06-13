@@ -12,6 +12,7 @@ import { MovieInfoComponent } from './components/movie-info/movie-info.component
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ConfirmedComponent } from './components/confirmed/confirmed.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ConfirmedComponent } from './components/confirmed/confirmed.component';
     MovieInfoComponent,
     ShoppingCartComponent,
     NotFoundComponent,
-    ConfirmedComponent
+    ConfirmedComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

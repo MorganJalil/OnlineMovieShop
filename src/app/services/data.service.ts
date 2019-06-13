@@ -51,6 +51,10 @@ export class DataService implements IDataService {
     return this.shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart')) || [];
   }
 
+  deleteOrder(orderIdToRemove: number): Observable<IOrder>{
+    return this.http.delete<IOrder>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/' + orderIdToRemove);
+  }
+
   removeMovies(): void {
     sessionStorage.removeItem('shoppingCart');
     }

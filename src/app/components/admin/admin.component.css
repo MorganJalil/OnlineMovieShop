@@ -1,0 +1,9 @@
+.containerAdmin{
+    padding-top: 10vh;
+    text-align: center;
+    height: 10vh;
+}
+.orders{
+    padding-top: 20vh;
+    border-bottom: 1px gray solid;
+}

@@ -125,7 +125,7 @@ export class ShoppingCartComponent implements OnInit {
 
   createOrderRow() { 
     for (let i = 0; i < this.currentCart.length; i++) {
-      this.orderRows.push({ProductId: this.currentCart[i].movie.id, Amount: this.currentCart[i].quantity});
+      this.orderRows.push({productId: this.currentCart[i].movie.id, Amount: this.currentCart[i].quantity});
       this.cartTotalSum;
     }
   }

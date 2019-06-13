@@ -1,14 +1,15 @@
 <body class="bod">
 <div class= "container">
   <a [routerLink]="['']">back</a>
-  <h3>
+  <div class="movieTitle">
     {{ movie.name }}
-  </h3>
+  </div>
 
   <div class="movieContainer">
-  <img [src]="movie.imageUrl">
+  <img [src]="movie.imageUrl" alt="Poster of the film: {{ movie.name }}">
   </div>
   <br>
+  <p>{{ movie.year }}</p>
   <p>{{ movie.description }}</p>
 
   <div class="text-center">

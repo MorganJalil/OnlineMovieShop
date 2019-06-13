@@ -1,16 +1,17 @@
 .bod {
 background-repeat: repeat-y;
 border: 1px solid greenyellow;
-height: 100vh;
+height: 180vh;
     background: rgb(15,17,99);
     background: linear-gradient(0deg, rgba(15,17,99,1) 0%, rgba(7,119,203,1) 100%);
 }
 .container {
-    margin-top: 100px;
+    margin-top: 130px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 100%;
+    max-width: 90%;
+    height: auto;
     color:white;
     background: rgb(0,0,0);
     background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(75,0,0,1) 100%);
@@ -26,12 +27,23 @@ a {
     color: white;
 }
 
+.movieTitle {
+    font-size: 60px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: underline;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 .movieContainer {
-   max-width:350px;
+   max-width:100%;
    margin: 0 auto;
+   
 }
 img{
-    width: 100%;
+    max-width: 60%;
     height: auto;
     border-radius: 7px;
 }

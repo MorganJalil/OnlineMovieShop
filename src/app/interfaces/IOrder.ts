@@ -1,4 +1,3 @@
-import { IShoppingCart } from './IShoppingCart';
 
 export interface IOrder {
     id: number;
@@ -12,6 +11,11 @@ export interface IOrder {
 }
 
 export interface IOrderRow {
-    ProductId: number;
+    productId: number;
     Amount: number;
+}
+
+export interface IExtendedOrders {
+    order: IOrder;
+    movieName: string[];
 }

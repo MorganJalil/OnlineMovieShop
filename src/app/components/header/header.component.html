@@ -32,7 +32,7 @@
   </div>
   <br>
   <div *ngFor="let movie of movies" id="searchItem">
-    <img src="{{ movie.imageUrl }}" width="300px" (click)="redirectToDetails(movie.id)">
+    <img src="{{ movie.imageUrl }}" width="300px" (click)="redirectToDetails(movie.id)" alt="Poster of the film: {{ movie.name }}">
     <p>{{ movie.name }}</p>
     <p>{{ movie.price }} :-</p>
     <button (click)="addMovieToCart(movie)">Lägg till</button>

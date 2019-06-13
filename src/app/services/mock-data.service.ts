@@ -64,7 +64,7 @@ export class MockDataService implements IDataService {
       paymentMethod: 'Klarna',
       totalPrice: 298,
       status: 0,
-      orderRows: [{ProductId: 76, Amount: 2}]
+      orderRows: [{productId: 76, Amount: 2}]
       }
     ];
 

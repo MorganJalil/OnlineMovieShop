@@ -7,6 +7,7 @@ import { MovieInfoComponent } from './components/movie-info/movie-info.component
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ConfirmedComponent } from './components/confirmed/confirmed.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'movie-info/:id', component: MovieInfoComponent},
   { path: 'shoppingCart', component: ShoppingCartComponent},
   { path: 'confirmed', component: ConfirmedComponent},
+  { path: 'admin', component: AdminComponent},
   { path: '**', component: NotFoundComponent}
 
 ];
