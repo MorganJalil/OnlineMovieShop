@@ -117,6 +117,15 @@ hr {
     top:5px
 }
 
+.onlineMovieShop {
+    font-size: 54px;
+    background: -webkit-linear-gradient(#FFA500, #664200);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 .movieTitle {
     font-size: 34px;
     background: -webkit-linear-gradient(#eee, #333);
