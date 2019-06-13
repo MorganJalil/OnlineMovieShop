@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent} from './components/home/home.component';
 import { MovieInfoComponent} from './components/movie-info/movie-info.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 describe('AppComponent', () => {
@@ -19,8 +20,8 @@ describe('AppComponent', () => {
         FooterComponent,
         HeaderComponent,
         HomeComponent,
-        MovieInfoComponent
-        
+        MovieInfoComponent,
+        NotFoundComponent        
       ],
       imports: [HttpClientModule, RouterTestingModule, ReactiveFormsModule]
     }).compileComponents();

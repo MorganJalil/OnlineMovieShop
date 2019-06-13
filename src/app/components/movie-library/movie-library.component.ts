@@ -11,14 +11,14 @@ import { InteractionService } from 'src/app/services/interaction.service';
 export class MovieLibraryComponent implements OnInit {
   movies: IMovie[];
   @Input() product: IMovie;
-  constructor(private service: DataService, private interactionService: InteractionService) { }
+  constructor(private service: DataService, private interaction: InteractionService) { }
 
   ngOnInit() {
     this.service.getMoviesData().subscribe((data) => { this.movies = data; 
     });
   }
   addMovieToCart(product){
-    this.interactionService.sendCart(product);
+    this.interaction.sendCart(product);
   }
 
   redirectToDetails(id: number) {

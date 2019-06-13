@@ -34,13 +34,17 @@
   }
 
     .addButton {
-      border: 1px solid green;
       margin-left: 0 auto;
       position: absolute;
       right: 1px;
       bottom: 1px;
       border-radius: 7px;
     }
+
+    .addButton:hover {
+      background-color: blue;
+    }
+    
     .img {
       object-fit: cover;
       width: auto;

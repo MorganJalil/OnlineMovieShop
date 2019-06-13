@@ -5,13 +5,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'movie-library', component: MovieLibraryComponent},
   { path: 'movie-info/:id', component: MovieInfoComponent},
-  { path: 'shoppingCart', component: ShoppingCartComponent}
+  { path: 'shoppingCart', component: ShoppingCartComponent},
+  { path: '**', component: NotFoundComponent}
+
 ];
 
 @NgModule({

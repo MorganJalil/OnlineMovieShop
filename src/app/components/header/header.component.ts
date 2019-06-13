@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
   currentCart: IShoppingCart[] = [];
   show: boolean = false;
   shoppingCart: boolean = false;
-  numberOfSearchResults: number;
 
   constructor(private service: DataService, private interaction: InteractionService) { }
   ngOnInit() {
@@ -35,7 +34,6 @@ export class HeaderComponent implements OnInit {
  
   cartDropDown(){
     this.showShoppingCart = !this.showShoppingCart;
-  
   }
 
   search(searchMovie: string) {
@@ -56,11 +54,7 @@ export class HeaderComponent implements OnInit {
     } else {
       document.getElementById("mainHeader").style.opacity = '1';
     }
-/*     let number = window.pageYOffset || 0;
-    console.log(number); */
   }
-
-  
 
   redirectToDetails(id: number) {
     location.href = "/movie-info/" + id;

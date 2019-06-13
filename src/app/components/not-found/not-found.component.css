@@ -1,0 +1,11 @@
+body {
+    width: 100vw;
+    height: 100vh;
+
+    background: #343837;
+}
+
+p {
+    color:white;
+    margin-top: 400px;
+}

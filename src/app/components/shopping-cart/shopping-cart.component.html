@@ -8,14 +8,14 @@
       <p>antal  {{ items.quantity }} st à {{ items.movie.price }} kr
         <button (click)="addSingleMovieToCart(items.movie)">+</button>
         <button (click)="subtractMovie(items.movie.id)">-</button></p>
-      <p> total <strong>{{ items.totalSum }}</strong> kr
+      <p> totalt <strong>{{ items.totalSum }}</strong> kr
       </p>
       <button class="delete" (click)="deleteFromCart(items.movie.id)">ta bort</button>
       <hr>
     </div>
 </div>
 <br>
-<h2>Total <strong>{{ totalPrice }} </strong> kr</h2>
+<h2>Totalt <strong>{{ totalPrice }} </strong> kr</h2>
 <br>
 
 <form class="form" [formGroup]="userInfo" (ngSubmit)="createOrder()">

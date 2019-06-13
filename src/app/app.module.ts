@@ -10,6 +10,7 @@ import { FooterComponent} from './components/footer/footer.component';
 import { HomeComponent} from './components/home/home.component';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     HomeComponent,
     MovieLibraryComponent,
     MovieInfoComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -15,10 +15,8 @@
     {{ movie.price }}:-
     <label for="amount" class="item"></label>
     <input type="hidden" id="amount" value= "1" #amount class="item" min='1' max='1' />
-    <button type="submit" (click)="addToShoppingCart(+ amount.value)" class="item">+</button>
-    {{amount.value}}
-    <button type="submit" (click)="addToShoppingCart(-amount.value)" class="item">-</button>
-    <button (click)="goToShoppingCart()" class="item">Go to Cart!</button>
+    <button class="item" (click)="addMovieToCart(movie)">Lägg till</button>
+    <button (click)="goToShoppingCart()" class="item">Checkout</button>
   </div>
 </div>
 </body>
