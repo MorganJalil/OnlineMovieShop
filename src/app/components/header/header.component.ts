@@ -41,7 +41,6 @@ export class HeaderComponent implements OnInit {
       
       this.service.getSearchMovies(searchMovie)
         .subscribe(movies => this.movies = movies);
-        console.log(this.movies);
         this.show = true;
         return searchMovie;
     }
@@ -104,6 +103,5 @@ export class HeaderComponent implements OnInit {
 
   goToShoppingCart() {
     location.href = '/shoppingCart';
-    console.log('should go to cart');
     }
 }
