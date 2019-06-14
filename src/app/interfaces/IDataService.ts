@@ -8,8 +8,8 @@ import { IOrder } from './IOrder';
 export interface IDataService {
     getMoviesData(): Observable<IMovie[]>;
     getMovieCategoryData(): Observable<IMovieCategory[]>;
-    addToShoppingCart(movie: IShoppingCart[]);
-    getShoppingCartMovies();
-    getOrder(): Observable<IOrder[]>;
-    removeMovies();
+    
+    getOrderData(): Observable<IOrder[]>;
+   
+    postOrder(order): Observable<IOrder>;
 }

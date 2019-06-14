@@ -95,8 +95,12 @@ export class MockDataService implements IDataService {
     return of(this.categories);
   }
 
-  getOrder(): Observable<IOrder[]> {
+  getOrderData(): Observable<IOrder[]> {
     return of (this.order);
+  }
+
+  postOrder(order): Observable<IOrder> {
+    return of(this.order[0]);
   }
 
   addToShoppingCart(movie: IShoppingCart[]) {

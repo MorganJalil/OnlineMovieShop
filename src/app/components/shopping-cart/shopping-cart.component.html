@@ -6,8 +6,8 @@
         {{ items.movie.name }}
       </strong></div>
       <p><strong class="orangeText">{{ items.quantity }}</strong> à <strong class="orangeText">{{ items.movie.price }}</strong> kr
-        <button (click)="addSingleMovieToCart(items.movie)">+</button>
-        <button (click)="subtractMovie(items.movie.id)">-</button></p>
+        <button (click)="addMovieToCart(items.movie)">+</button>
+        <button (click)="subtractMovieFromCart(items.movie.id)">-</button></p>
       <p> totalt <strong class="orangeText">{{ items.totalSum }}</strong> kr
       </p>
       <button class="delete" (click)="deleteFromCart(items.movie.id)">ta bort</button>
@@ -18,7 +18,7 @@
 <h2 class="sum">Summa <strong>{{ totalPrice }} </strong> kr</h2>
 <br>
 
-<form class="form" [formGroup]="userInfo" (ngSubmit)="createOrder()">
+<form class="form" [formGroup]="userInfo" (ngSubmit)="postOrder()">
   <label for="userName">Namn</label>
   <input type="text" id="userName" formControlName="userName" required minlength="4"/>
   <br>

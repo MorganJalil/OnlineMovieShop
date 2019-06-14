@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IOrderRow } from 'src/app/interfaces/IOrder';
+import { IOrderRow, IOrder } from 'src/app/interfaces/IOrder';
 import { IShoppingCart } from 'src/app/interfaces/IShoppingCart';
 import { Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
@@ -15,8 +15,8 @@ import { IMovie } from 'src/app/interfaces/IMovie';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  orderRows: IOrderRow[] = [];
   currentCart: IShoppingCart[] = [];
+  currentTime = moment().format('lll');
   totalPrice: number;
   totalAmount: number;
   showShoppingCart = false;
@@ -33,8 +33,9 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
 
     this.interaction.getCartFromSessionStorage();
-    this.currentCart = this.interaction.getCart();
+    this.currentCart = this.interaction.getShoppingCart();
     this.cartTotalSum();
+    this.cartTotalAmount();
 
     this.interaction.movieSource$.subscribe(
       cartInfo => {
@@ -45,7 +46,8 @@ export class ShoppingCartComponent implements OnInit {
  
   print(currentCart) {
     this.currentCart = this.currentCart;
-    this.cartTotalSum()
+    this.cartTotalSum();
+    this.cartTotalAmount();
   }
 
   cartTotalSum() {
@@ -66,8 +68,9 @@ export class ShoppingCartComponent implements OnInit {
   addMovieToCart(singleMovie: IMovie) {
 
     this.interaction.sendCart(singleMovie);
-    this.currentCart = this.interaction.cart;
+    this.currentCart = this.interaction.shoppingCart;
     this.cartTotalSum();
+    this.cartTotalAmount();
   }
 
   cartDropDown() {
@@ -77,38 +80,13 @@ export class ShoppingCartComponent implements OnInit {
   subtractMovieFromCart(id) {
     this.interaction.delete(id);
     this.cartTotalSum();
+    this.cartTotalAmount();
   }
 
-
-  createOrder() {
-    this.createOrderRow;
-    //console.log(this.userInfo.value);
-    const orders = {
-      id: 0,
-      companyId: 27,
-      created: moment().format('LLLL'),
-      createdBy: this.userInfo.value.userEmail,
-      paymentMethod: this.userInfo.value.paymentType,
-      totalPrice: this.cartTotalSum(),
-      status: 0,
-      orderRows: this.orderRows
-    };
-
-    //console.log(orders);
-    this.service.postOrder(orders).subscribe(
-      response => {console.log(response); },
-      err => {console.log(err.message); },
-      () => {console.log('completed'); }
-    );
-    sessionStorage.clear();
-    this.goToConfirmation();
-  }
-  
   goToConfirmation() {
   location.href = '/confirmed';
   }
   
-
   deleteFromCart(id: number) {
     for (let i = 0; i < this.currentCart.length; i++) {
       if (this.currentCart[i].movie.id === id) {
@@ -120,14 +98,37 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   emptyCart() {
-    this.interaction.clearCartLocalstorage();
+    this.interaction.clearCartSessionstorage();
   }
 
-  createOrderRow() { 
-    for (let i = 0; i < this.currentCart.length; i++) {
-      this.orderRows.push({productId: this.currentCart[i].movie.id, Amount: this.currentCart[i].quantity});
-      this.cartTotalSum;
-    }
+
+  postOrder() {
+    
+      let orderRowsContent = [];
+      for (let i = 0; i < this.currentCart.length; i++) {
+
+        let amount = this.currentCart[i].quantity;
+        let id = this.currentCart[i].movie.id;
+
+        orderRowsContent.push({ productId: id, amount: amount });
+      }
+
+      let order: IOrder = {
+        id: 0,
+        companyId: 27,
+        created: this.currentTime, 
+        createdBy: this.userInfo.value.userEmail,
+        paymentMethod: this.userInfo.value.paymentType,
+        totalPrice: this.totalPrice,
+        status: 1,
+        orderRows: orderRowsContent
+      }
+
+      this.service.postOrder(order).subscribe();
+      this.emptyCart();
+      this.goToConfirmation() 
+    
   }
+
 }
 

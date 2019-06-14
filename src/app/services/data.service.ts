@@ -15,7 +15,7 @@ export class DataService implements IDataService {
   constructor(private http: HttpClient) {}
 
   shoppingCart: IShoppingCart[] = []
-  MoviesUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/products';
+  MoviesUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/products/';
   searchMovieUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=';
   postOrderUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders';
   getOrderUrl = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=27';
@@ -40,22 +40,9 @@ export class DataService implements IDataService {
     return this.http.post<IOrder>(this.postOrderUrl, order);
   }
 
-  getOrder(): Observable<IOrder[]> {
+  getOrderData(): Observable<IOrder[]> {
     return this.http.get<IOrder[]>(this.getOrderUrl);
   }
 
-  addToShoppingCart(movie: IShoppingCart[]) {
-    return sessionStorage.setItem('shoppingCart', JSON.stringify(this.shoppingCart));
-  }
-  getShoppingCartMovies() {
-    return this.shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart')) || [];
-  }
-
-  deleteOrder(orderIdToRemove: number): Observable<IOrder>{
-    return this.http.delete<IOrder>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/' + orderIdToRemove);
-  }
-
-  removeMovies(): void {
-    sessionStorage.removeItem('shoppingCart');
-    }
+  
 }

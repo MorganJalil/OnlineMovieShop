@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   constructor(private service: DataService, private interaction: InteractionService) { }
   ngOnInit() {
     this.interaction.getCartFromSessionStorage();
-    this.currentCart = this.interaction.getCart();
+    this.currentCart = this.interaction.getShoppingCart();
     this.cartTotalSum();
     this.cartTotalAmount();
 
@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit {
 
   addMovieToCart(product: IMovie){
     this.interaction.sendCart(product);
-    this.currentCart = this.interaction.cart;
+    this.currentCart = this.interaction.shoppingCart;
     this.cartTotalAmount();
     this.cartTotalSum();
   }
@@ -99,7 +99,7 @@ export class HeaderComponent implements OnInit {
   }
 
   emptyCart() {
-    this.interaction.clearCartLocalstorage();
+    this.interaction.clearCartSessionstorage();
   }
 
   goToShoppingCart() {

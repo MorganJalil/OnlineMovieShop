@@ -9,7 +9,7 @@ import { IMovie } from '../interfaces/IMovie';
 export class InteractionService {
   private movieSource = new Subject<IShoppingCart[]>();
 
-  cart: IShoppingCart[] = [];
+  shoppingCart: IShoppingCart[] = [];
   movieSource$ = this.movieSource.asObservable();
 
   constructor() { }
@@ -18,59 +18,59 @@ export class InteractionService {
     console.log("in service");
     let addedMovie = false;
 
-    for (let i = 0; i < this.cart.length; i++) {
-      if (product.id === this.cart[i].movie.id) {
-        this.cart[i].quantity++;
+    for (let i = 0; i < this.shoppingCart.length; i++) {
+      if (product.id === this.shoppingCart[i].movie.id) {
+        this.shoppingCart[i].quantity++;
         addedMovie = true;
-        this.cart[i].totalSum += this.cart[i].movie.price;
+        this.shoppingCart[i].totalSum += this.shoppingCart[i].movie.price;
       }
     }
  
     if (addedMovie === false) {
-      this.cart.push({ movie: product, quantity: 1, totalSum: product.price});
+      this.shoppingCart.push({ movie: product, quantity: 1, totalSum: product.price});
     }
-    this.movieSource.next(this.cart);
+    this.movieSource.next(this.shoppingCart);
     this.saveCartToSessionStorage();
   }
   
   delete(id: number){
-    for(let i = 0; i < this.cart.length; i++){
-      if(this.cart[i].movie.id === id){
-        if(this.cart[i].quantity > 0){
-          this.cart[i].quantity--;
-          this.cart[i].totalSum -= this.cart[i].movie.price;
+    for(let i = 0; i < this.shoppingCart.length; i++){
+      if(this.shoppingCart[i].movie.id === id){
+        if(this.shoppingCart[i].quantity > 0){
+          this.shoppingCart[i].quantity--;
+          this.shoppingCart[i].totalSum -= this.shoppingCart[i].movie.price;
         }
   
-        if(this.cart[i].quantity === 0){
-          this.cart.splice(i, 1);
+        if(this.shoppingCart[i].quantity === 0){
+          this.shoppingCart.splice(i, 1);
         }
       }
     }
-    this.movieSource.next(this.cart);
+    this.movieSource.next(this.shoppingCart);
     this.saveCartToSessionStorage();
   }
 
   saveCartToSessionStorage(){
-    sessionStorage.setItem('shoppingCart', JSON.stringify(this.cart));
+    sessionStorage.setItem('shoppingCart', JSON.stringify(this.shoppingCart));
   }
 
   getCartFromSessionStorage(){
     let fetchLocalStorageCart = sessionStorage.getItem('shoppingCart');
     if(fetchLocalStorageCart === null){
-      this.cart = [];
+      this.shoppingCart = [];
     } else{
-      this.cart = JSON.parse(fetchLocalStorageCart);
+      this.shoppingCart = JSON.parse(fetchLocalStorageCart);
     }
-    this.getCart() 
+    this.getShoppingCart() 
   }
-  getCart() {
-    return this.cart;
+  
+  getShoppingCart() {
+    return this.shoppingCart;
   }
-  clearCartLocalstorage(){
-    this.cart.splice(0, this.cart.length);
- 
-    this.movieSource.next(this.cart);
- 
+
+  clearCartSessionstorage(){
+    this.shoppingCart.splice(0, this.shoppingCart.length);
+    this.movieSource.next(this.shoppingCart);
     this.saveCartToSessionStorage();
  
   }

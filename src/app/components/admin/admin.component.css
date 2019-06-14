@@ -6,4 +6,5 @@
 .orders{
     padding-top: 20vh;
     border-bottom: 1px gray solid;
+    width: 50vw;
 }

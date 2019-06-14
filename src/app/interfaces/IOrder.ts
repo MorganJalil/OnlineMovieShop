@@ -17,5 +17,5 @@ export interface IOrderRow {
 
 export interface IExtendedOrders {
     order: IOrder;
-    movieName: string[];
+    movieNames: string[];
 }

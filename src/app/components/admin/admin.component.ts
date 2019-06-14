@@ -12,27 +12,19 @@ export class AdminComponent implements OnInit {
 
   constructor(private service: DataService) { }
 
-  ngOnInit() {    this.service.getOrder().subscribe((orderData) => {
-
-
+  ngOnInit() {this.service.getOrderData().subscribe((orderData) => {
+    
     for (let i = 0; i < orderData.length; i++) {
-    this.extendedOrders.push({ order: orderData[i], movieName: []});
-    
-    let orderRows = orderData[i].orderRows;
-    
-    for (let j = 0; j < orderRows.length; j++) {
-    let productId = orderRows[j].productId;
-    
-    //console.log('product id from orderrows: ' + productId);
-    
-    this.service.getSingleMovieData(productId).subscribe((data) => {
-    //console.log(data);
-    this.extendedOrders[i].movieName.push(data.name);
-    
-    });
+      this.extendedOrders.push({ order: orderData[i], movieNames: []});
+      
+      let orderRows = orderData[i].orderRows;
+      
+      for (let j = 0; j < orderRows.length; j++) {
+        let productId = orderRows[j].productId;
+        this.service.getSingleMovieData(productId).subscribe((data) => {
+          this.extendedOrders[i].movieNames.push(data.name);
+        });
+      }
     }
-    }
-    });
-}
-
-}
+  });
+}}
