@@ -40,10 +40,12 @@ hr {
     flex:1 1 auto;
     text-align: center;
 }
+
 .group1 {
     float: left;
     margin: 0px 10px;
 }
+
 .group2 {
     float: right;
     margin: 0 auto;
@@ -54,6 +56,7 @@ hr {
     color: white;
     text-decoration: none;
 }
+
 #mainHeader a:hover{
     color: yellow;
     text-decoration: none;
@@ -81,23 +84,22 @@ hr {
     -moz-box-shadow: 0px 0px 300px 500px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 300px 500px rgba(0,0,0,0.75);
 }
+
 #searchResult img  {
     transition: transform .4s ease-out;
-  }
-  #searchResult img:hover  {
-    transform: scale(1.05);
-    -webkit-box-shadow: 0px 0px 300px 100px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 300px 100px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 300px 100px rgba(0,0,0,0.75);
-  }
-
-#searchResult img {
     cursor: pointer;
     height: 300px;
     width: auto;
     border: 1px solid black;
     border-radius: 7px;
 }
+
+#searchResult img:hover  {
+    transform: scale(1.05);
+    -webkit-box-shadow: 0px 0px 300px 100px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 300px 100px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 300px 100px rgba(0,0,0,0.75);
+  }
 
 .dropDownCart{
     max-width: 300px;

@@ -1,23 +1,21 @@
 <body class="bod">
-<div class= "container">
-  <a [routerLink]="['']">back</a>
-  <div class="movieTitle">
-    {{ movie.name }}
-  </div>
+  <div class= "container">
+    <a [routerLink]="['']">back</a>
+    <div class="movieTitle">{{ movie.name }}</div>
 
-  <div class="movieContainer">
-  <img [src]="movie.imageUrl" alt="Poster of the film: {{ movie.name }}">
+    <div class="movieContainer">
+      <img [src]="movie.imageUrl" alt="Poster of the film: {{ movie.name }}">
+    </div>
+    <br>
+    <p>{{ movie.year }}</p>
+    <p>{{ movie.description }}</p>
+    
+    <div class="text-center">
+      {{ movie.price }}:-
+      <label for="amount" class="item"></label>
+      <input type="hidden" id="amount" value= "1" #amount class="item" min='1' max='1' />
+      <button class="item" (click)="addMovieToCart(movie)">Lägg till</button>
+      <button (click)="goToShoppingCart()" class="item">Checkout</button>
+    </div>
   </div>
-  <br>
-  <p>{{ movie.year }}</p>
-  <p>{{ movie.description }}</p>
-
-  <div class="text-center">
-    {{ movie.price }}:-
-    <label for="amount" class="item"></label>
-    <input type="hidden" id="amount" value= "1" #amount class="item" min='1' max='1' />
-    <button class="item" (click)="addMovieToCart(movie)">Lägg till</button>
-    <button (click)="goToShoppingCart()" class="item">Checkout</button>
-  </div>
-</div>
 </body>

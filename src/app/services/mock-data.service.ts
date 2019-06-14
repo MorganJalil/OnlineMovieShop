@@ -107,12 +107,7 @@ export class MockDataService implements IDataService {
     return this.shoppingCart;
   }
   
-  removeMovies() {
-  }
-
-  getShoppingCartMovies() {
-
-  }
+ 
 
   constructor() { }
 }

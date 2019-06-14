@@ -11,8 +11,8 @@ body {
     display: flex;
     flex-flow: wrap row;
     margin: 0 auto;
-    
 }
+
 .items {
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(75,0,0,1) 40%);
     color: white;
@@ -64,6 +64,5 @@ body {
     width: 200px;
     margin: 0 auto;
     padding-bottom:50vh;
-    color: white;
-    
+    color: white;  
 }
