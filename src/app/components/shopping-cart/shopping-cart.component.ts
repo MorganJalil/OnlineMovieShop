@@ -19,7 +19,6 @@ export class ShoppingCartComponent implements OnInit {
   currentTime = moment().format('lll');
   totalPrice: number;
   totalAmount: number;
-  showShoppingCart = false;
   
   userInfo = this.fb.group({
     userName: ['', Validators.required],
@@ -73,10 +72,6 @@ export class ShoppingCartComponent implements OnInit {
     this.cartTotalAmount();
   }
 
-  cartDropDown() {
-    this.showShoppingCart = !this.showShoppingCart;
-  }
-
   subtractMovieFromCart(id) {
     this.interaction.delete(id);
     this.cartTotalSum();
@@ -101,9 +96,7 @@ export class ShoppingCartComponent implements OnInit {
     this.interaction.clearCartSessionstorage();
   }
 
-
   postOrder() {
-    
       let orderRowsContent = [];
       for (let i = 0; i < this.currentCart.length; i++) {
 

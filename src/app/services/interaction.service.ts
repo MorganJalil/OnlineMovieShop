@@ -15,7 +15,6 @@ export class InteractionService {
   constructor() { }
 
   sendCart(product: IMovie) {
-    console.log("in service");
     let addedMovie = false;
 
     for (let i = 0; i < this.shoppingCart.length; i++) {
@@ -55,11 +54,11 @@ export class InteractionService {
   }
 
   getCartFromSessionStorage(){
-    let fetchLocalStorageCart = sessionStorage.getItem('shoppingCart');
-    if(fetchLocalStorageCart === null){
+    let getSessionStorageCart = sessionStorage.getItem('shoppingCart');
+    if(getSessionStorageCart === null){
       this.shoppingCart = [];
     } else{
-      this.shoppingCart = JSON.parse(fetchLocalStorageCart);
+      this.shoppingCart = JSON.parse(getSessionStorageCart);
     }
     this.getShoppingCart() 
   }
