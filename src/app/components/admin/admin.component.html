@@ -1,19 +1,24 @@
 
-
-<div class="orders" *ngFor="let orders of extendedOrders">
-
-    <div *ngFor="let orderRow of orders.order.orderRows">
-    <p>Produkt ID: {{ orderRow.productId }}</p>
-    <p> Antal: {{ orderRow.amount }}</p>
+<body>
+    <div class="button_item--reload">
+    <button (click)="reloadAdmin()">reload Admin</button>
     </div>
-    
-    <p>ID: {{ orders.order.id }}</p>
-    <p>Företags ID: {{ orders.order.companyId }}</p>
-    <p>Skapad av: {{ orders.order.createdBy }}</p>
-    <p>Skapad: {{ orders.order.created }}</p>
-    <p>Totalpris: {{ orders.order.totalPrice }}:- </p>
-    
-    <div *ngFor="let name of orders.movieNames">
-        <p>Film: {{ name }}</p>
+
+    <div class="main-body-styling">
+        <div class="orders" *ngFor="let orders of extendedOrders">
+            <div *ngFor="let orderRow of orders.order.orderRows">
+                <p>Film id: <strong class="value_number--styling">{{ orderRow.productId }}</strong> Antal:<strong class="value_number--styling"> {{ orderRow.amount }}</strong></p>
+            </div>
+        
+            <p>Order id: <strong class="value_number--styling">{{ orders.order.id }}</strong> Företags id: <strong class="value_number--styling">{{ orders.order.companyId }}</strong></p>
+            <p>Kund: <strong class="value_number--styling">{{ orders.order.createdBy }}</strong></p>
+            <p>Datum: <strong class="value_number--styling">{{ orders.order.created }}</strong></p>
+            <p>Totalpris: <strong class="value_number--styling">{{ orders.order.totalPrice }}:-</strong></p>
+            <hr>
+            <div *ngFor="let name of orders.movieNames">
+                <p>Film: <strong class="value_number--styling">{{ name }}</strong></p>
+            </div>
+            <button (click)="removeOrder(orders.order.id)">Remove order</button>
         </div>
     </div>
+</body>

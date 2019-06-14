@@ -44,5 +44,9 @@ export class DataService implements IDataService {
     return this.http.get<IOrder[]>(this.getOrderUrl);
   }
 
+  removeOrder(removeOrderId: number): Observable<IOrder>{
+    return this.http.delete<IOrder>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/' + removeOrderId);
+  }  
+
   
 }

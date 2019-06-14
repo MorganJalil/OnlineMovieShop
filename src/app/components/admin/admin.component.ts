@@ -11,6 +11,15 @@ export class AdminComponent implements OnInit {
   extendedOrders: IExtendedOrders[] = [];
 
   constructor(private service: DataService) { }
+  
+  removeOrder(removeOrderId) {
+    this.service.removeOrder(removeOrderId).subscribe((data) => { });
+    
+  }
+
+  reloadAdmin() {
+    location.href = '/admin';
+    }
 
   ngOnInit() {this.service.getOrderData().subscribe((orderData) => {
     
@@ -27,4 +36,5 @@ export class AdminComponent implements OnInit {
       }
     }
   });
+  
 }}
